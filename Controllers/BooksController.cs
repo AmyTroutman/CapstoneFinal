@@ -17,23 +17,24 @@ namespace capstone.Controllers
     {
 
         private ApplicationDbContext _context;
-        public BooksController(ApplicationDbContext context){
+        public BooksController(ApplicationDbContext context)
+        {
             _context = context;
         }
 
         [HttpGet]
-        public IEnumerable<Book> Get() 
+        public IEnumerable<Book> Get()
         {
             return _context.Books.ToArray();
         }
 
-        [HttpGet("id}")]
-        public Book Get([FromRoute]int id)
+        [HttpGet("{id}")]
+        public Book Get([FromRoute] int id)
         {
             var book = _context.Books.FirstOrDefault(b => b.Id == id);
             return book;
         }
-
+        
         [HttpPost]
         public Book Add([FromBody] Book book)
         {
@@ -46,6 +47,7 @@ namespace capstone.Controllers
         public IActionResult Delete (int id)
         {
             _context.Remove(id);
+            return Ok();
         }
     }
 }
