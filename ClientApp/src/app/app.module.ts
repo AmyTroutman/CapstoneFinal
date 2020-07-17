@@ -12,6 +12,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BookComponent } from './book/book.component';
+import { NewBookComponent } from './new-book/new-book.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { BookComponent } from './book/book.component';
     NavMenuComponent,
     HomeComponent,
     BookComponent,
+    NewBookComponent,
 
   ],
   imports: [
@@ -28,7 +30,8 @@ import { BookComponent } from './book/book.component';
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'catalog', component: BookComponent, canActivate: [AuthorizeGuard] }
+      { path: 'catalog', component: BookComponent, canActivate: [AuthorizeGuard] },
+      { path: 'newbook', component: NewBookComponent, canActivate: [AuthorizeGuard] }
     ]),
     BrowserAnimationsModule
   ],
