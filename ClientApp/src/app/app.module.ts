@@ -28,7 +28,7 @@ import { BookComponent } from './book/book.component';
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'books', component: BookComponent, canActivate: [AuthorizeGuard] }
+      { path: 'catalog', component: BookComponent, canActivate: [AuthorizeGuard] }
     ]),
     BrowserAnimationsModule
   ],
