@@ -36,7 +36,7 @@ namespace capstone.Controllers
         }
         
         [HttpPost]
-        public Book Add([FromBody] Book book)
+        public Book Post([FromBody] Book book)
         {
             _context.Books.Add(book);
             _context.SaveChanges();

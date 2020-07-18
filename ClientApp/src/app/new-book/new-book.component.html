@@ -1,1 +1,16 @@
-<p>new-book works!</p>
+<div class="newBook">
+    <h3>Add a book to the catalog:</h3>
+    Title
+    <input [(ngModel)]="newBook.title" name="title" />
+    Author
+    <input [(ngModel)]="newBook.author" name="author" />
+    Type
+    <input [(ngModel)]="newBook.type" name="notes" />
+    Series
+    <input [(ngModel)]="newBook.series" name="notes" />
+    Notes
+    <input [(ngModel)]="newBook.notes" name="notes" />
+    <button (click)="save()">Save</button>
+  </div>
+
+  <button routerLink="/catalog">Catalog</button>

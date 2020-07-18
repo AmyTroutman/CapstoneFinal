@@ -11,7 +11,7 @@ export class BookComponent implements OnInit {
 
   constructor(private bookService: BookService) { }
 
-  books: IBook[] = [];
+  books: IBook[];
 
   async ngOnInit() {
     this.books = await this.bookService.GetBooks();

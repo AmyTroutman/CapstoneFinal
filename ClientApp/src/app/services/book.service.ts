@@ -11,6 +11,10 @@ export class BookService {
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   GetBooks(): Promise<IBook[]> {
-    return this.http.get<IBook[]>(`${this.baseUrl}/catalog`).toPromise();
+    return this.http.get<IBook[]>(`${this.baseUrl}books`).toPromise();
+  }
+
+  AddBook(newBook: IBook): Promise<IBook> {
+    return this.http.post<IBook>(`${this.baseUrl}books`, newBook).toPromise();
   }
 }
