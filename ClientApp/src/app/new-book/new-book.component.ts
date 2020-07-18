@@ -9,7 +9,8 @@ import { BookService } from '../services/book.service';
 })
 export class NewBookComponent implements OnInit {
 
-  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: ''};
+  currentUserId;
+  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: '', userId: this.currentUserId};
   public books: IBook[];
   created = false;
   constructor(private bookService: BookService) { }
@@ -18,10 +19,14 @@ export class NewBookComponent implements OnInit {
     this.books = await this.bookService.GetBooks();
   }
 
-  async save() {
-    await this.bookService.AddBook(this.newBook);
-    this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: ''};
-    this.books = await this.bookService.GetBooks();
+  async save(): Promise<void> {
+    // await this.bookService.AddBook(this.newBook);
+    // this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: ''};
+    // this.books = await this.bookService.GetBooks();
+
+    // This is what Jordan did. Said this is the only way to get the id of the new book.
+    const newBook = await this.bookService.AddBook(this.newBook);
+    this.books.push(newBook);
   }
 
 }

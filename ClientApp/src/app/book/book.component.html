@@ -1,1 +1,63 @@
-<p>book works!</p>
+<h1 id="tableLabel">Catalog</h1>
+
+<p *ngIf="!books"><em>Loading...</em></p>
+<a routerLink="/newbook">Add a book to the catalog</a> 
+<br/>
+
+<mat-form-field appearance="fill" color="accent">
+    <mat-label>Search catalog</mat-label>
+    <input (focus)="searching = true" (keyup)="applyFilter($event.target.value)" matInput>
+</mat-form-field>
+
+<mat-button-toggle-group value="all" *ngIf="searching"> 
+    <mat-button-toggle value="title">Title</mat-button-toggle>
+    <mat-button-toggle value="author">Author</mat-button-toggle>
+    <mat-button-toggle value="all">All</mat-button-toggle>
+    <mat-button-toggle (click)="cancel()">Cancel</mat-button-toggle>
+</mat-button-toggle-group>
+
+<div class="mat-elevation-z5" align="center" *ngIf="books && searching">
+    <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+            <td mat-cell *matCellDef="let book">{{book.title}}</td>
+        </ng-container>
+        <ng-container matColumnDef="author">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Author </th>
+            <td mat-cell *matCellDef="let book">{{book.author}}</td>
+        </ng-container>
+        <ng-container matColumnDef="notes">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Notes </th>
+            <td mat-cell *matCellDef="let book">{{book.notes}}</td>
+        </ng-container>
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Id </th>
+            <td mat-cell *matCellDef="let book">{{book.id}}</td>
+        </ng-container>
+        <ng-container matColumnDef="series">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Series </th>
+            <td mat-cell *matCellDef="let book">{{book.series}}</td>
+        </ng-container>
+        <ng-container matColumnDef="type">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Form </th>
+            <td mat-cell *matCellDef="let book">{{book.type}}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 15, 25]"></mat-paginator>
+</div>
+
+<div *ngFor="let b of books">
+  <div *ngIf="!searching" class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{b.title}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted"><a href="#">{{b.author}}</a></h6>
+      <p class="card-text">{{b.notes}}</p>
+      <p class="card-text">Form: {{b.type}}</p>
+      <p class="card-text">Catalog number: {{b.id}}</p>
+      <a href="#" class="card-link">Series: {{b.series}}</a>
+      <a href="#" class="card-link">Another link</a>
+    </div>
+  </div>
+</div>
