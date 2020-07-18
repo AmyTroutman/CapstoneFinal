@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpService } from './http.service';
+import { Injectable, Inject } from '@angular/core';
 import { IBook } from '../ibook';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -8,9 +8,9 @@ import { IBook } from '../ibook';
 export class BookService {
 
   books: IBook[];
-  constructor(private http: HttpService) { }
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
-  GetBooks() {
-    return this.http.Get();
+  GetBooks(): Promise<IBook[]> {
+    return this.http.get<IBook[]>(`${this.baseUrl}/catalog`).toPromise();
   }
 }
