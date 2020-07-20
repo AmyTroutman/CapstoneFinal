@@ -13,6 +13,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class BookComponent implements OnInit {
 
   books: IBook[];
+  bookId;
   searching = false;
   dataSource: MatTableDataSource<IBook>;
   displayedColumns: string[] = [

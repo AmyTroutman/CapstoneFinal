@@ -37,13 +37,6 @@ namespace capstone.Controllers
             return book;
         }
 
-        // [HttpGet]
-        // public IEnumerable<Book> GetBooksByAuthor(string author)
-        // {
-        //     var books = _context.Books.Where(b => b.Author == author).ToArray();
-        //     return books;
-        // }
-
         [HttpPost]
         public Book Post([FromBody] Book book)
         {

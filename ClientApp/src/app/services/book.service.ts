@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class BookService {
 
   books: IBook[];
+  bookId: number;
  // myUrl = this.baseUrl + 'books';
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
@@ -15,12 +16,13 @@ export class BookService {
     return this.http.get<IBook[]>(`${this.baseUrl}books`).toPromise();
   }
 
-  // is this even close to how I would pass an author to my GetBooksForAuthor method in my controller??
-  // GetBooksForAuthor(author: string): Promise<IBook[]> {
-  //   return this.http.get<IBook[]>(`${this.baseUrl}books`).toPromise();
-  // }
-
   AddBook(newBook: IBook): Promise<IBook> {
     return this.http.post<IBook>(`${this.baseUrl}books`, newBook).toPromise();
   }
+
+  GetId(id) {
+    this.bookId = id;
+    console.log(id);
+  }
+
 }
