@@ -7,10 +7,10 @@ using capstone.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace capstone.Controllers
 {
-    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class BooksController : ControllerBase
@@ -25,26 +25,40 @@ namespace capstone.Controllers
         [HttpGet]
         public IEnumerable<Book> Get()
         {
-            return _context.Books.ToArray();
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            return _context.Books.Where(b => b.UserId == userId).ToArray();
         }
 
         [HttpGet("{id}")]
         public Book Get([FromRoute] int id)
         {
-            var book = _context.Books.FirstOrDefault(b => b.Id == id);
-            return book;
-        }
-        
-        [HttpPost]
-        public Book Post([FromBody] Book book)
-        {
-            _context.Books.Add(book);
-            _context.SaveChanges();
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var book = _context.Books.Where(b => b.UserId == userId).FirstOrDefault(b => b.Id == id);
             return book;
         }
 
+        [HttpGet]
+        public IEnumerable<Book> GetBooksByAuthor(string author)
+        {
+            var books = _context.Books.Where(b => b.Author == author).ToArray();
+            return books;
+        }
+
+        [HttpPost]
+        public Book Post([FromBody] Book book)
+        {
+            var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            book.UserId = userId;
+            _context.Books.Add(book);
+            _context.SaveChanges();
+            return book;
+
+
+        }
+
         [HttpDelete("{id}")]
-        public IActionResult Delete (int id)
+        public IActionResult Delete(int id)
         {
             _context.Remove(id);
             return Ok();

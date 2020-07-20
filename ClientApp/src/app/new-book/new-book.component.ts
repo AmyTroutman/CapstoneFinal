@@ -10,7 +10,7 @@ import { BookService } from '../services/book.service';
 export class NewBookComponent implements OnInit {
 
   currentUserId;
-  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: '', userId: this.currentUserId};
+  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: ''};
   public books: IBook[];
   created = false;
   constructor(private bookService: BookService) { }
