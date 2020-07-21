@@ -1,1 +1,11 @@
-<p>book-view works!</p>
+
+    <div class="card" style="width: 18rem;">
+      <div class="card-body" routerLink="/{{this.bookId}}">
+        <h5 class="card-title">{{book.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted"><a href="#">{{book.author}}</a></h6>
+        <p class="card-text">{{book.notes}}</p>
+        <p class="card-text">Form: {{book.type}}</p>
+        <p class="card-text">Catalog number: {{book.id}}</p>
+        <a href="#" class="card-link">Series: {{book.series}}</a>
+      </div>
+    </div>
