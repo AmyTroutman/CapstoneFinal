@@ -17,18 +17,19 @@ export class BookComponent implements OnInit {
   searching = false;
   dataSource: MatTableDataSource<IBook>;
   displayedColumns: string[] = [
-    'id', 'title', 'author', 'series', 'notes', 'type'
+    'id', 'title', 'author', 'series', 'type'
   ];
-  @ViewChild(MatSort, {static: true}) sort: MatSort;
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true})sort: MatSort;
+  @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
 
   constructor(private bookService: BookService) { }
 
   async ngOnInit() {
     this.books = await this.bookService.GetBooks();
-    this.dataSource = new MatTableDataSource(this.books);
-    this.dataSource.sort = this.sort;
+    this.dataSource = new MatTableDataSource<IBook>(this.books);
+
     this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: any) {
