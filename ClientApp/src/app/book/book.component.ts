@@ -4,6 +4,7 @@ import { IBook } from '../ibook';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-book',
@@ -21,13 +22,14 @@ export class BookComponent implements OnInit {
   ];
   @ViewChild(MatSort, {static: true})sort: MatSort;
   @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
+  originalFilter: (data: any, filter: string) => boolean;
 
   constructor(private bookService: BookService) { }
 
   async ngOnInit() {
     this.books = await this.bookService.GetBooks();
     this.dataSource = new MatTableDataSource<IBook>(this.books);
-
+    this.originalFilter = this.dataSource.filterPredicate;
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }
@@ -38,6 +40,27 @@ export class BookComponent implements OnInit {
 
   cancel() {
     this.searching = false;
+  }
+
+  buttonToggle(event: MatButtonToggleChange): void {
+    switch (event.value) {
+      case 'title':
+        this.dataSource.filterPredicate = this.filterByTitle;
+        break;
+      case 'author':
+        this.dataSource.filterPredicate = this.filterByAuthor;
+        break;
+      default:
+        this.dataSource.filterPredicate = this.originalFilter;
+        break;
+    }
+  }
+
+  private filterByTitle(data: any, filter: string): boolean {
+    return data.title === filter;
+  }
+  private filterByAuthor(data: any, filter: string): boolean {
+    return data.author === filter;
   }
 
 }
