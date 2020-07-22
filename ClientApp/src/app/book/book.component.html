@@ -1,10 +1,10 @@
-<h1 id="tableLabel">Catalog</h1>
+<h1 id="tableLabel">Catalog </h1>
 
 <p *ngIf="!books"><em>Loading...</em></p>
-<a routerLink="/newbook">Add a book to the catalog</a> 
+<a class="addBook" routerLink="/newbook">Add a book to the catalog</a> 
 <br/>
 
-<mat-form-field appearance="fill" color="accent">
+<mat-form-field appearance="fill">
     <mat-label>Search catalog</mat-label>
     <input (focus)="searching = true" (keyup)="applyFilter($event.target.value)" matInput>
 </mat-form-field>
@@ -16,8 +16,8 @@
     <mat-button-toggle (click)="cancel()">Cancel</mat-button-toggle>
 </mat-button-toggle-group>
 
-<div class="mat-elevation-z5" align="center" *ngIf="books && searching">
-    <table mat-table [dataSource]="dataSource" matSort>
+<div class="mat-elevation-z5" *ngIf="books && searching">
+    <table mat-table [dataSource]="dataSource" matSort width="100%" >
         <ng-container matColumnDef="title">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
             <td mat-cell *matCellDef="let book">{{book.title}}</td>
@@ -53,9 +53,6 @@
     <div class="card-body" routerLink="/{{b.id}}">
       <h5 class="card-title">{{b.title}}</h5>
       <h6 class="card-subtitle mb-2 text-muted"><a href="#">{{b.author}}</a></h6>
-      <p class="card-text">{{b.notes}}</p>
-      <p class="card-text">Form: {{b.type}}</p>
-      <p class="card-text">Catalog number: {{b.id}}</p>
       <a href="#" class="card-link">Series: {{b.series}}</a>
     </div>
   </div>

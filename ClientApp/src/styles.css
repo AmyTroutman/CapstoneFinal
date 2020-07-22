@@ -2,7 +2,7 @@
 
 /* Provide sufficient contrast against white background */
 a {
-  color: #0366d6;
+  color: #a8c6e7;
 }
 
 code {
@@ -16,4 +16,4 @@ code {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(2, 27, 51); }
