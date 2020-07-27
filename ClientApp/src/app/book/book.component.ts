@@ -14,7 +14,6 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 export class BookComponent implements OnInit {
 
   books: IBook[];
-  bookId;
   searching = false;
   dataSource: MatTableDataSource<IBook>;
   displayedColumns: string[] = [
@@ -61,6 +60,10 @@ export class BookComponent implements OnInit {
   }
   private filterByAuthor(data: any, filter: string): boolean {
     return data.author === filter;
+  }
+
+  GetId(id) {
+    this.bookService.GetId(id);
   }
 
 }
