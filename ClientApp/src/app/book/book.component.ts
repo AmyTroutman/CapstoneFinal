@@ -44,8 +44,8 @@ export class BookComponent implements OnInit {
 
   buttonToggle(event: MatButtonToggleChange): void {
     switch (event.value) {
-      case 'title':
-        this.dataSource.filterPredicate = this.filterByTitle;
+      case 'series':
+        this.dataSource.filterPredicate = this.filterBySeries;
         break;
       case 'author':
         this.dataSource.filterPredicate = this.filterByAuthor;
@@ -56,8 +56,8 @@ export class BookComponent implements OnInit {
     }
   }
 
-  private filterByTitle(data: any, filter: string): boolean {
-    return data.title === filter;
+  private filterBySeries(data: any, filter: string): boolean {
+    return data.series === filter;
   }
   private filterByAuthor(data: any, filter: string): boolean {
     return data.author === filter;
