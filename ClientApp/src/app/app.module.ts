@@ -41,7 +41,7 @@ import { BookViewComponent } from './book-view/book-view.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'catalog', component: BookComponent, canActivate: [AuthorizeGuard] },
       { path: 'newbook', component: NewBookComponent, canActivate: [AuthorizeGuard] },
-      { path: '**', component: BookViewComponent, canActivate: [AuthorizeGuard ]}
+      { path: ':id', component: BookViewComponent, canActivate: [AuthorizeGuard ]}
     ]),
     BrowserAnimationsModule,
     MatTableModule,

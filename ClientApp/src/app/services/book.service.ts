@@ -20,9 +20,9 @@ export class BookService {
     return this.http.post<IBook>(`${this.baseUrl}books`, newBook).toPromise();
   }
 
-  GetId(id) {
+  GetId(id: number) {
     this.bookId = id;
-    console.log(id);
+    console.log(this.bookId);
   }
 
 }
