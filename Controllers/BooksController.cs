@@ -58,15 +58,14 @@ namespace capstone.Controllers
             if(currentBook == null) return null;
            
             _context.Entry(currentBook).CurrentValues.SetValues(book);
-            _context.Books.Update(book);
+            _context.Books.Update(currentBook);
             _context.SaveChanges();
-            return book;
+            return currentBook;
         }
 
         [HttpDelete("{id}")]
         public void Delete([FromRoute] int id)
         {
-            // Do I need to find the book associated with the id and pass that into Remove()?
             var book = _context.Books.FirstOrDefault(b => b.Id == id);
             _context.Books.Remove(book);
             _context.SaveChanges();
