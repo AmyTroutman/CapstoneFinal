@@ -34,8 +34,8 @@ namespace capstone.Controllers
         {
             var userId = HttpContext.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var book = _context.Books.Where(b => b.UserId == userId).FirstOrDefault(b => b.Id == id);
-            if(book == null) return NotFound();
-            return Ok(book);
+            if(book == null) return null;
+            return book;
         }
 
         [HttpPost]
@@ -46,7 +46,7 @@ namespace capstone.Controllers
             book.UserId = userId;
             _context.Books.Add(book);
             _context.SaveChanges();
-            return CreatedAtAction("GetBook", new { book.Id }, book);
+            return book;
         }
 
         [HttpPut("{id}")]
@@ -55,7 +55,7 @@ namespace capstone.Controllers
             // var currentBook = _context.Books.Find(book.Id);
             // I think this is the one I want:
             var currentBook = _context.Books.FirstOrDefault(b => b.Id == id);
-            if(currentBook == null) return NotFound();
+            if(currentBook == null) return null;
            
             _context.Entry(currentBook).CurrentValues.SetValues(book);
             _context.Books.Update(book);
@@ -67,7 +67,8 @@ namespace capstone.Controllers
         public void Delete([FromRoute] int id)
         {
             // Do I need to find the book associated with the id and pass that into Remove()?
-            _context.Books.Remove(id);
+            var book = _context.Books.FirstOrDefault(b => b.Id == id);
+            _context.Books.Remove(book);
             _context.SaveChanges();
         }
     }
