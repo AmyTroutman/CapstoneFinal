@@ -20,6 +20,14 @@ export class BookService {
     return this.http.post<IBook>(`${this.baseUrl}books`, newBook).toPromise();
   }
 
+  async UpdateBook(bookId: number, book: IBook) {
+    return await this.http.put<IBook>(`${this.baseUrl}books/${bookId}`, book).toPromise();
+  }
+
+  async DeleteBook(bookId: number) {
+    return await this.http.delete<IBook>(`${this.baseUrl}books/${bookId}`).toPromise();
+  }
+
   GetId(id: number) {
     this.bookId = id;
     console.log(this.bookId);
