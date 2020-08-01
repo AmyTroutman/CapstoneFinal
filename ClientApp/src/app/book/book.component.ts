@@ -62,8 +62,4 @@ export class BookComponent implements OnInit {
     return data.author === filter;
   }
 
-  GetId(id) {
-    this.bookService.GetId(id);
-  }
-
 }

@@ -8,12 +8,18 @@ import { HttpClient } from '@angular/common/http';
 export class BookService {
 
   books: IBook[];
+  book;
   bookId: number;
  // myUrl = this.baseUrl + 'books';
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   GetBooks(): Promise<IBook[]> {
      return this.http.get<IBook[]>(`${this.baseUrl}books`).toPromise();
+  }
+
+  async GetBook(id: number) {
+    this.book = await this.http.get<IBook>(`${this.baseUrl}books/${id}`).toPromise();
+    return this.book;
   }
 
   AddBook(newBook: IBook): Promise<IBook> {
