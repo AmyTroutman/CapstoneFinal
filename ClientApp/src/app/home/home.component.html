@@ -1,15 +1,34 @@
-<h1>Welcome to my library!</h1>
-<p>Current Features:</p>
-<ul>
-  <li>Can add books</li>
-  <li>Can view books on a table, with sorting and pagination</li>
-  <li>Can view books as cards</li>
-</ul>
-<p>Future Features:</p>
-<ul>
-  <li>Can view a single book with more details</li>
-  <li>Can edit books</li>
-  <li>Can delete books!</li>
-  <li>Can add books to lists!! Like "To Read" and "Have Read" and "Want to buy!"</li>
-</ul>
+<h1>Welcome to YOUR library!</h1>
+<div [hidden]="!loggedIn">
+  <p>Current Features:</p>
+  <ul>
+    <li>Can add books</li>
+    <li>Can view books on a table, with sorting and pagination</li>
+    <li>Can view books as cards</li>
+  </ul>
+  <p>Future Features:</p>
+  <ul>
+    <li>Can view a single book with more details</li>
+    <li>Can edit books</li>
+    <li>Can delete books!</li>
+    <li>Can add books to lists!! Like "To Read" and "Have Read" and "Want to buy!"</li>
+  </ul>
+</div>
+
+<div [hidden]="loggedIn">
+  <div class="row">
+    <div class="col-md-4">
+      <h3>Reading Now</h3>
+      <app-book status="Reading"></app-book>
+    </div>
+    <div class="col-md-4">
+      <h3>Reading Next</h3>
+      <app-book status="Read"></app-book>
+    </div>
+    <div class="col-md-4">
+      <h3>Wanna Buy!</h3>
+      <app-book status="Buy"></app-book>
+    </div>
+  </div>
+</div>
 
