@@ -8,13 +8,7 @@
     <mat-label>Search catalog</mat-label>
     <input (focus)="searching = true" (keyup)="applyFilter($event.target.value)" matInput>
 </mat-form-field>
-
-<mat-button-toggle-group value="all" [hidden]="!searching"> 
-    <mat-button-toggle value="title">Title</mat-button-toggle>
-    <mat-button-toggle value="author">Author</mat-button-toggle>
-    <mat-button-toggle value="all">All</mat-button-toggle>
-    <mat-button-toggle (click)="cancel()">Cancel</mat-button-toggle>
-</mat-button-toggle-group>
+<button [hidden]="!searching" class="btn btn-danger" (click)="cancel()">Cancel</button>
 
 <div class="mat-elevation-z5" [hidden]="!searching">
     <table mat-table [dataSource]="dataSource" matSort width="100%" >

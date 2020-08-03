@@ -21,6 +21,7 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { BookComponent } from './book/book.component';
 import { NewBookComponent } from './new-book/new-book.component';
 import { BookViewComponent } from './book-view/book-view.component';
+import { BookListComponent } from './book-list/book-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BookViewComponent } from './book-view/book-view.component';
     HomeComponent,
     BookComponent,
     NewBookComponent,
-    BookViewComponent
+    BookViewComponent,
+    BookListComponent
 
   ],
   imports: [
