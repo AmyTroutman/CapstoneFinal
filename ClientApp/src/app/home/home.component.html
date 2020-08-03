@@ -1,5 +1,5 @@
 <h1>Welcome to YOUR library!</h1>
-<div [hidden]="!loggedIn">
+<div>
   <p>Current Features:</p>
   <ul>
     <li>Can add books</li>
@@ -15,19 +15,19 @@
   </ul>
 </div>
 
-<div [hidden]="loggedIn">
+<div>
   <div class="row">
     <div class="col-md-4">
       <h3>Reading Now</h3>
-      <app-book-list status="Reading"></app-book>
+      <app-book-list status="Reading"></app-book-list>
     </div>
     <div class="col-md-4">
       <h3>Reading Next</h3>
-      <app-book-list status="Read"></app-book>
+      <app-book-list status="Read"></app-book-list>
     </div>
     <div class="col-md-4">
       <h3>Wanna Buy!</h3>
-      <app-book-list status="Buy"></app-book>
+      <app-book-list status="Buy"></app-book-list>
     </div>
   </div>
 </div>
