@@ -21,4 +21,11 @@ export class BookListComponent implements OnInit {
     this.books = await this.bookService.GetBooks();
   }
 
+  getBooks(status?: string) {
+    if (status === undefined) {
+      return this.books;
+    }
+    return this.books.filter(t => t.status === status);
+  }
+
 }

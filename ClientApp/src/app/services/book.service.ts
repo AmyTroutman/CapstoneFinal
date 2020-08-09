@@ -10,6 +10,7 @@ export class BookService {
   books: IBook[];
   book;
   bookId: number;
+  statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy'];
  // myUrl = this.baseUrl + 'books';
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
