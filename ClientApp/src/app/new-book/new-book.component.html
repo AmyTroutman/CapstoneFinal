@@ -10,16 +10,22 @@
         <label for="author">Author</label>
         <input class="form-control" type="text" [(ngModel)]="newBook.author" name="author" id="author" />
       </div>
+      <div class="col">
+        <label for="genre">Genre</label>
+        <input class="form-control" type="text" [(ngModel)]="newBook.genre" name="genre" id="genre" />
+      </div>
     </div>
     <div class="row">
       <div class="col">
         <label for="series">Series</label>
         <input class="form-control" type="text" [(ngModel)]="newBook.series" name="series" id="series" />
       </div>
-      <!-- <div class="col">
-        <label for="genre">Genre</label>
-        <input class="form-control" type="text" [(ngModel)]="newBook.genre" name="genre" id="genre" />
-      </div> -->
+      <div class="col">
+        <label for="status">Status</label>
+        <select class="form-control" [(ngModel)]="newBook.status" name="status" id="status">
+          <option *ngFor="let stat of options" [value]="stat">{{stat}}</option>
+      </select>
+      </div>
       <div class="col">
         <label for="type">Type</label>
         <input class="form-control" type="text" [(ngModel)]="newBook.type" name="type" id="type"

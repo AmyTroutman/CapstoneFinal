@@ -6,11 +6,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using capstone.Data;
 
-namespace capstone.Data.Migrations
+namespace capstone.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200204024449_AddedTeachersAgain")]
-    partial class AddedTeachersAgain
+    [Migration("20200809165343_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -296,78 +296,41 @@ namespace capstone.Data.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("capstone.Models.Student", b =>
+            modelBuilder.Entity("capstone.Models.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Author")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Genre")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("Id");
-
-                    b.ToTable("Students");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Jon",
-                            LastName = "Smith"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FirstName = "Bobby",
-                            LastName = "Miller"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FirstName = "Sarah",
-                            LastName = "Brooks"
-                        });
-                });
-
-            modelBuilder.Entity("capstone.Models.Teacher", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("FirstName")
+                    b.Property<string>("Notes")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("LastName")
+                    b.Property<string>("Series")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("UserId")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Teachers");
+                    b.HasIndex("UserId");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            FirstName = "Sam",
-                            LastName = "Smith"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            FirstName = "Tom",
-                            LastName = "Miller"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            FirstName = "Mary",
-                            LastName = "Brooks"
-                        });
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -419,6 +382,13 @@ namespace capstone.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("capstone.Models.Book", b =>
+                {
+                    b.HasOne("capstone.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
                 });
 #pragma warning restore 612, 618
         }
