@@ -13,6 +13,7 @@ export class BookViewComponent implements OnInit {
   books: IBook[];
   bookId: number;
   book;
+  options: string[];
 
   constructor(private bookService: BookService) { }
 
@@ -20,6 +21,13 @@ export class BookViewComponent implements OnInit {
     this.bookId = this.bookService.bookId;
    // this.books = await this.bookService.GetBooks();
     this.book = this.bookService.book;
+    this.options = this.bookService.statuses;
+  }
+
+  async save(): Promise<void> {
+    await this.bookService.UpdateBook(this.bookId, this.book);
+    this.book = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
+    // this.books = await this.bookService.GetBooks();
   }
 
 }

@@ -42,7 +42,7 @@ export class BookComponent implements OnInit {
     this.searching = false;
   }
 
-  modBook() {
+  modBook(id: number) {
     this.bookService.modModal(this.book);
   }
 
