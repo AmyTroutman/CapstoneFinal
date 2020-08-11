@@ -1,4 +1,6 @@
 import { Injectable, Inject } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BookViewComponent } from '../book-view/book-view.component';
 import { IBook } from '../ibook';
 import { HttpClient } from '@angular/common/http';
 
@@ -12,7 +14,7 @@ export class BookService {
   bookId: number;
   statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy'];
  // myUrl = this.baseUrl + 'books';
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string, private modalService: NgbModal) { }
 
   GetBooks(): Promise<IBook[]> {
      return this.http.get<IBook[]>(`${this.baseUrl}books`).toPromise();
@@ -33,6 +35,12 @@ export class BookService {
 
   async DeleteBook(bookId: number) {
     return await this.http.delete<IBook>(`${this.baseUrl}books/${bookId}`).toPromise();
+  }
+
+  async modModal(book: IBook) {
+    const modal = this.modalService.open(BookViewComponent);
+    const viewComponent = modal.componentInstance;
+    viewComponent.modalInstance = modal;
   }
 
   GetId(id: number) {

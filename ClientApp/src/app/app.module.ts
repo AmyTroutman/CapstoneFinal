@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
@@ -52,7 +54,9 @@ import { BookListComponent } from './book-list/book-list.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    NgbModule
+
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }

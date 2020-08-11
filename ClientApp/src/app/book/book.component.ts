@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { IBook } from '../ibook';
 import { MatTableDataSource } from '@angular/material/table';
@@ -13,6 +13,7 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 })
 export class BookComponent implements OnInit {
 
+  @Input()book: IBook;
   books: IBook[];
   searching = false;
   dataSource: MatTableDataSource<IBook>;
@@ -39,6 +40,10 @@ export class BookComponent implements OnInit {
 
   cancel() {
     this.searching = false;
+  }
+
+  modBook() {
+    this.bookService.modModal(this.book);
   }
 
   buttonToggle(event: MatButtonToggleChange): void {
