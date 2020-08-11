@@ -17,7 +17,7 @@ export class BookComponent implements OnInit {
   searching = false;
   dataSource: MatTableDataSource<IBook>;
   displayedColumns: string[] = [
-    'id', 'title', 'author', 'series', 'type'
+    'id', 'title', 'author', 'series', 'genre', 'type'
   ];
   @ViewChild(MatSort, {static: true})sort: MatSort;
   @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
