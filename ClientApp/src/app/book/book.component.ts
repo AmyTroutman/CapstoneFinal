@@ -4,9 +4,7 @@ import { IBook } from '../ibook';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatButtonToggleChange } from '@angular/material/button-toggle';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { BookViewComponent } from '../book-view/book-view.component';
 
 
 @Component({
@@ -43,40 +41,6 @@ export class BookComponent implements OnInit {
 
   cancel() {
     this.searching = false;
-  }
-
-  // async modModal(id: number) {
-  //   const book = this.bookService.GetBook(id);
-  //   this.bookService.book = book;
-  //   console.log(book);
-  //   const modal = this.modalService.open(BookViewComponent);
-  //   const viewComponent = modal.componentInstance;
-  //   viewComponent.modalInstance = modal;
-  // }
-
-  // modBook(book: IBook) {
-  //   this.modModal(this.book);
-  // }
-
-  buttonToggle(event: MatButtonToggleChange): void {
-    switch (event.value) {
-      case 'series':
-        this.dataSource.filterPredicate = this.filterBySeries;
-        break;
-      case 'author':
-        this.dataSource.filterPredicate = this.filterByAuthor;
-        break;
-      default:
-        this.dataSource.filterPredicate = this.originalFilter;
-        break;
-    }
-  }
-
-  private filterBySeries(data: any, filter: string): boolean {
-    return data.series === filter;
-  }
-  private filterByAuthor(data: any, filter: string): boolean {
-    return data.author === filter;
   }
 
 }

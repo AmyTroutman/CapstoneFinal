@@ -35,9 +35,4 @@ export class BookService {
     return await this.http.delete<IBook>(`${this.baseUrl}books/${bookId}`).toPromise();
   }
 
-  GetId(id: number) {
-    this.bookId = id;
-    console.log(this.bookId);
-  }
-
 }

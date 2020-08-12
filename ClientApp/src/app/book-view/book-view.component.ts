@@ -21,7 +21,8 @@ export class BookViewComponent implements OnInit {
   async ngOnInit() {
     this.bookId = this.route.snapshot.params.id;
    // this.books = await this.bookService.GetBooks();
-    this.book = this.bookService.book;
+    this.book = this.bookService.GetBook(this.bookId);
+    console.log(this.book);
     this.options = this.bookService.statuses;
   }
 
@@ -31,8 +32,8 @@ export class BookViewComponent implements OnInit {
     // this.books = await this.bookService.GetBooks();
   }
 
-  async deleteBook(id): Promise<void> {
-    await this.bookService.DeleteBook(id);
+  async deleteBook(): Promise<void> {
+    await this.bookService.DeleteBook(this.bookId);
     this.books = await this.bookService.GetBooks();
 
   }
