@@ -45,7 +45,7 @@ import { BookListComponent } from './book-list/book-list.component';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'catalog', component: BookComponent, canActivate: [AuthorizeGuard] },
       { path: 'newbook', component: NewBookComponent, canActivate: [AuthorizeGuard] },
-      { path: ':id', component: BookViewComponent, canActivate: [AuthorizeGuard ]}
+      { path: 'book/:id', component: BookViewComponent, canActivate: [AuthorizeGuard ]},
     ]),
     BrowserAnimationsModule,
     MatTableModule,

@@ -7,6 +7,7 @@
         <h6 class="card-subtitle mb-2 text-muted">{{b.author}}</h6>
         <h6 class="card-subtitle mb-2 text-muted">Series: {{b.series}}</h6>
         <h6 class="card-subtitle mb-2 text-muted">Status: {{b.status}}</h6>
+        <button [routerLink]="['/book', b.id]">Edit</button>
       </div>
     </div>
   </div>

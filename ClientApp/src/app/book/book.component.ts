@@ -45,14 +45,14 @@ export class BookComponent implements OnInit {
     this.searching = false;
   }
 
-  async modModal(id: number) {
-    const book = this.bookService.GetBook(id);
-    this.bookService.book = book;
-    console.log(book);
-    const modal = this.modalService.open(BookViewComponent);
-    const viewComponent = modal.componentInstance;
-    viewComponent.modalInstance = modal;
-  }
+  // async modModal(id: number) {
+  //   const book = this.bookService.GetBook(id);
+  //   this.bookService.book = book;
+  //   console.log(book);
+  //   const modal = this.modalService.open(BookViewComponent);
+  //   const viewComponent = modal.componentInstance;
+  //   viewComponent.modalInstance = modal;
+  // }
 
   // modBook(book: IBook) {
   //   this.modModal(this.book);
