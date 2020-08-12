@@ -5,6 +5,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatButtonToggleChange } from '@angular/material/button-toggle';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { BookViewComponent } from '../book-view/book-view.component';
+
 
 @Component({
   selector: 'app-book',
@@ -24,7 +27,7 @@ export class BookComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
   originalFilter: (data: any, filter: string) => boolean;
 
-  constructor(private bookService: BookService) { }
+  constructor(private bookService: BookService, private modalService: NgbModal) { }
 
   async ngOnInit() {
     this.books = await this.bookService.GetBooks();
@@ -42,9 +45,18 @@ export class BookComponent implements OnInit {
     this.searching = false;
   }
 
-  modBook(id: number) {
-    this.bookService.modModal(this.book);
+  async modModal(id: number) {
+    const book = this.bookService.GetBook(id);
+    this.bookService.book = book;
+    console.log(book);
+    const modal = this.modalService.open(BookViewComponent);
+    const viewComponent = modal.componentInstance;
+    viewComponent.modalInstance = modal;
   }
+
+  // modBook(book: IBook) {
+  //   this.modModal(this.book);
+  // }
 
   buttonToggle(event: MatButtonToggleChange): void {
     switch (event.value) {

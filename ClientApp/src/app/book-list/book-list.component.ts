@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { IBook } from '../ibook';
 import { MatTableDataSource } from '@angular/material/table';
@@ -14,6 +14,7 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 export class BookListComponent implements OnInit {
 
   books: IBook[];
+  @Input()book;
 
     constructor(private bookService: BookService) { }
 
