@@ -11,6 +11,7 @@ export class BookService {
   book;
   bookId: number;
   statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy'];
+  types = ['Paperback', 'Hardback', 'eBook', 'Other'];
  // myUrl = this.baseUrl + 'books';
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 

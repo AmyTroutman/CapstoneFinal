@@ -54,7 +54,7 @@ namespace capstone.Controllers
         {
             // var currentBook = _context.Books.Find(book.Id);
             // I think this is the one I want:
-            var currentBook = _context.Books.FirstOrDefault(b => b.Id == id);
+            var currentBook = _context.Books.Find(book.Id);
             if(currentBook == null) return null;
            
             _context.Entry(currentBook).CurrentValues.SetValues(book);

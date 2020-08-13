@@ -15,6 +15,7 @@ export class BookViewComponent implements OnInit {
   bookId: number;
   book;
   options: string[];
+  types: string[];
 
   constructor(private bookService: BookService, private route: ActivatedRoute) { }
 
@@ -24,18 +25,18 @@ export class BookViewComponent implements OnInit {
     this.book = this.bookService.GetBook(this.bookId);
     console.log(this.book);
     this.options = this.bookService.statuses;
+    this.types = this.bookService.types;
   }
 
   async save(): Promise<void> {
     await this.bookService.UpdateBook(this.bookId, this.book);
-    this.book = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
+    this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
     // this.books = await this.bookService.GetBooks();
   }
 
   async deleteBook(): Promise<void> {
     await this.bookService.DeleteBook(this.bookId);
     this.books = await this.bookService.GetBooks();
-
   }
 
 }

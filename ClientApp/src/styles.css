@@ -17,3 +17,7 @@ code {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(2, 27, 51); color: #ffdbcd;}
+
+.card-title {
+  color: #e01a76;
+}

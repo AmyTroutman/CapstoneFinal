@@ -25,4 +25,9 @@ export class BookListComponent implements OnInit {
     return this.books.filter(t => t.status === status);
   }
 
+  async deleteBook(id: number): Promise<void> {
+    await this.bookService.DeleteBook(id);
+    this.books = await this.bookService.GetBooks();
+  }
+
 }
