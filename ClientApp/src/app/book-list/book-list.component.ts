@@ -1,10 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { IBook } from '../ibook';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatSort } from '@angular/material/sort';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatButtonToggleChange } from '@angular/material/button-toggle';
 
 @Component({
   selector: 'app-book-list',
@@ -14,6 +10,7 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 export class BookListComponent implements OnInit {
 
   books: IBook[];
+  @Input()book;
 
     constructor(private bookService: BookService) { }
 
@@ -26,6 +23,11 @@ export class BookListComponent implements OnInit {
       return this.books;
     }
     return this.books.filter(t => t.status === status);
+  }
+
+  async deleteBook(id: number): Promise<void> {
+    await this.bookService.DeleteBook(id);
+    this.books = await this.bookService.GetBooks();
   }
 
 }

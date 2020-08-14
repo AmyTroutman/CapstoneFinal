@@ -1,8 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
 
-/* Provide sufficient contrast against white background */
-a {
-  color: #a8c6e7;
+a{
+  color: #ffdbcd;
+}
+a:hover{
+  color: #e72c0a;
 }
 
 code {
@@ -16,4 +17,15 @@ code {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color: rgb(2, 27, 51); color: #ffdbcd;}
+
+body {
+   margin: 0; 
+   font-family: Lato, "Helvetica Neue", sans-serif; 
+   background-color: rgb(2, 27, 51); 
+   background-image: url("../src/assets/bookEndsheet.jpg");
+   background-size: cover;
+   color: #ffdbcd;}
+
+.card-title {
+  color: #e72c0a;
+}

@@ -1,21 +1,21 @@
 <h1>Welcome to YOUR library!</h1>
-<div>
+<div *ngIf="!(isAuthenticated | async)">
   <p>Current Features:</p>
   <ul>
-    <li>Can add books</li>
-    <li>Can view books on a table, with sorting and pagination</li>
-    <li>Can view books as cards</li>
+    <li>Can add, update, and delete books!</li>
+    <li>Can view books on a table, with sorting and pagination!</li>
+    <li>Can view books as cards!</li>
   </ul>
   <p>Future Features:</p>
   <ul>
-    <li>Can view a single book with more details</li>
-    <li>Can edit books</li>
-    <li>Can delete books!</li>
+    <li>Better update form!</li>
     <li>Can add books to lists!! Like "To Read" and "Have Read" and "Want to buy!"</li>
+    <li>Can view those lists on the home page!</li>
+    <li>Buttons that match the design!!</li>
   </ul>
 </div>
 
-<div>
+<div *ngIf="isAuthenticated | async">
   <div class="row">
     <div class="col-md-4">
       <h3>Reading Now</h3>

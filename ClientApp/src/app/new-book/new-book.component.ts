@@ -14,11 +14,13 @@ export class NewBookComponent implements OnInit {
   // public books: IBook[];
   created = false;
   options: string[];
+  types: string[];
   constructor(private bookService: BookService) { }
 
   async ngOnInit() {
    // this.books = await this.bookService.GetBooks();
    this.options = this.bookService.statuses;
+   this.types = this.bookService.types;
   }
 
   async save(): Promise<void> {

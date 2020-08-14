@@ -11,6 +11,7 @@ export class BookService {
   book;
   bookId: number;
   statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy'];
+  types = ['Paperback', 'Hardback', 'eBook', 'Other'];
  // myUrl = this.baseUrl + 'books';
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
@@ -33,11 +34,6 @@ export class BookService {
 
   async DeleteBook(bookId: number) {
     return await this.http.delete<IBook>(`${this.baseUrl}books/${bookId}`).toPromise();
-  }
-
-  GetId(id: number) {
-    this.bookId = id;
-    console.log(this.bookId);
   }
 
 }
