@@ -1,9 +1,12 @@
 a {
-    color: #2b527a;
+    text-decoration: none;
 }
 
 .addBook {
     color: #ffdbcd;
+}
+.addBook:hover{
+    color: #e72c0a;
 }
 
 h1 {
