@@ -1,5 +1,6 @@
-<h1>Welcome to YOUR library!</h1>
+
 <div *ngIf="!(isAuthenticated | async)">
+  <h1>Welcome to YOUR library!</h1>
   <p>Current Features:</p>
   <ul>
     <li>Can add, update, and delete books!</li>
@@ -16,6 +17,7 @@
 </div>
 
 <div *ngIf="isAuthenticated | async">
+  <h1>Ex Libris {{userName | async}}</h1>
   <div class="row">
     <div class="col-md-4">
       <h3>Reading Now</h3>
