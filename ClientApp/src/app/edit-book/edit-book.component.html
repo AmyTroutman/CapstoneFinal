@@ -1,0 +1,46 @@
+<div class="align-items-center" padding="5%">
+    <form>
+      <div class="row">
+        <div class="col">
+          <label for="title">Title</label>
+          <input class="form-control" type="text" [(ngModel)]="book.title" name="title" id="title"
+            placeholder="{{this.book.title}}" />
+        </div>
+        <div class="col">
+          <label for="author">Author</label>
+          <input class="form-control" type="text" [(ngModel)]="book.author" name="author" id="author" />
+        </div>
+        <div class="col">
+          <label for="genre">Genre</label>
+          <input class="form-control" type="text" [(ngModel)]="book.genre" name="genre" id="genre" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="series">Series</label>
+          <input class="form-control" type="text" [(ngModel)]="book.series" name="series" id="series" />
+        </div>
+        <div class="col">
+          <label for="status">Status</label>
+          <select class="form-control" [(ngModel)]="book.status" name="status" id="status">
+            <option *ngFor="let stat of options" [value]="stat">{{stat}}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="type">Type</label>
+          <select class="form-control" [(ngModel)]="book.type" name="type" id="type">
+            <option *ngFor="let type of types" [value]="type">{{type}}</option>
+          </select>
+        </div>
+        <div class="row">
+          <div class="col">
+            <label for="notes">Notes</label>
+            <textarea class="form-control" [(ngModel)]="book.notes" name="notes" id="notes" rows="3"></textarea>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <button class="btn btn-warning" (click)="save()">Save Changes</button>
+  <!-- <button class="btn btn-danger" (click)="deleteBook()">Delete</button> -->
+  <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>

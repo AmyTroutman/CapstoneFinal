@@ -24,6 +24,7 @@ import { BookComponent } from './book/book.component';
 import { NewBookComponent } from './new-book/new-book.component';
 import { BookViewComponent } from './book-view/book-view.component';
 import { BookTableComponent } from './book-table/book-table.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BookTableComponent } from './book-table/book-table.component';
     BookComponent,
     NewBookComponent,
     BookViewComponent,
-    BookTableComponent
+    BookTableComponent,
+    EditBookComponent
 
   ],
   imports: [
@@ -46,6 +48,8 @@ import { BookTableComponent } from './book-table/book-table.component';
       { path: 'catalog', component: BookTableComponent, canActivate: [AuthorizeGuard] },
       { path: 'newbook', component: NewBookComponent, canActivate: [AuthorizeGuard] },
       { path: 'book/:id', component: BookViewComponent, canActivate: [AuthorizeGuard ]},
+      { path: 'edit/:id', component: EditBookComponent, canActivate: [AuthorizeGuard ]},
+
     ]),
     BrowserAnimationsModule,
     MatTableModule,
