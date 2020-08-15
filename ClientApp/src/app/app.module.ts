@@ -23,7 +23,6 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { BookComponent } from './book/book.component';
 import { NewBookComponent } from './new-book/new-book.component';
 import { BookViewComponent } from './book-view/book-view.component';
-import { BookListComponent } from './book-list/book-list.component';
 import { BookTableComponent } from './book-table/book-table.component';
 
 @NgModule({
@@ -34,7 +33,6 @@ import { BookTableComponent } from './book-table/book-table.component';
     BookComponent,
     NewBookComponent,
     BookViewComponent,
-    BookListComponent,
     BookTableComponent
 
   ],
