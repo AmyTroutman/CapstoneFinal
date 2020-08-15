@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { IBook } from '../ibook';
 
@@ -9,9 +9,8 @@ import { IBook } from '../ibook';
 })
 export class BookComponent implements OnInit {
 
-  @Input()book: IBook;
+  @Input() book;
   books: IBook[];
-  searching = false;
 
   constructor(private bookService: BookService) { }
 

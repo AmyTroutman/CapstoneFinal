@@ -1,10 +1,11 @@
-<div *ngFor="let b of getBooks()">
+<div *ngFor="let book of books">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-            <h5 class="card-title">{{b.title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{b.author}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Series: {{b.series}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Status: {{b.status}}</h6>
+            <h5 class="card-title">{{book.title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
+            <button class="btn btn-sm btn-info" [routerLink]="['/book', book.id]">View</button>
         </div>
     </div>
 </div>

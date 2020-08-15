@@ -36,4 +36,8 @@ export class BookService {
     return await this.http.delete<IBook>(`${this.baseUrl}books/${bookId}`).toPromise();
   }
 
+  getStatus(): string[] {
+    return this.statuses;
+  }
+
 }
