@@ -23,7 +23,8 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
 import { BookComponent } from './book/book.component';
 import { NewBookComponent } from './new-book/new-book.component';
 import { BookViewComponent } from './book-view/book-view.component';
-import { BookListComponent } from './book-list/book-list.component';
+import { BookTableComponent } from './book-table/book-table.component';
+import { EditBookComponent } from './edit-book/edit-book.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { BookListComponent } from './book-list/book-list.component';
     BookComponent,
     NewBookComponent,
     BookViewComponent,
-    BookListComponent
+    BookTableComponent,
+    EditBookComponent
 
   ],
   imports: [
@@ -43,9 +45,11 @@ import { BookListComponent } from './book-list/book-list.component';
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'catalog', component: BookComponent, canActivate: [AuthorizeGuard] },
+      { path: 'catalog', component: BookTableComponent, canActivate: [AuthorizeGuard] },
       { path: 'newbook', component: NewBookComponent, canActivate: [AuthorizeGuard] },
       { path: 'book/:id', component: BookViewComponent, canActivate: [AuthorizeGuard ]},
+      { path: 'edit/:id', component: EditBookComponent, canActivate: [AuthorizeGuard ]},
+
     ]),
     BrowserAnimationsModule,
     MatTableModule,

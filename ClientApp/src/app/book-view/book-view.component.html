@@ -1,62 +1,13 @@
-<div class="align-items-center" padding="5%">
-  <form>
-    <div class="row">
-      <div class="col">
-        <label for="title">Title</label>
-        <input class="form-control" type="text" [(ngModel)]="book.title" name="title" id="title"
-          placeholder="{{this.book.title}}" />
-      </div>
-      <div class="col">
-        <label for="author">Author</label>
-        <input class="form-control" type="text" [(ngModel)]="book.author" name="author" id="author" />
-      </div>
-      <div class="col">
-        <label for="genre">Genre</label>
-        <input class="form-control" type="text" [(ngModel)]="book.genre" name="genre" id="genre" />
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <label for="series">Series</label>
-        <input class="form-control" type="text" [(ngModel)]="book.series" name="series" id="series" />
-      </div>
-      <div class="col">
-        <label for="status">Status</label>
-        <select class="form-control" [(ngModel)]="book.status" name="status" id="status">
-          <option *ngFor="let stat of options" [value]="stat">{{stat}}</option>
-        </select>
-      </div>
-      <div class="col">
-        <label for="type">Type</label>
-        <select class="form-control" [(ngModel)]="book.type" name="type" id="type">
-          <option *ngFor="let type of types" [value]="type">{{type}}</option>
-        </select>
-      </div>
-      <div class="row">
-        <div class="col">
-          <label for="notes">Notes</label>
-          <textarea class="form-control" [(ngModel)]="book.notes" name="notes" id="notes" rows="3"></textarea>
-        </div>
-      </div>
-    </div>
-  </form>
-</div>
-<button class="btn btn-warning" (click)="save()">Save Changes</button>
-<!-- <button class="btn btn-danger" (click)="deleteBook()">Delete</button> -->
-<button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
-
-
-
 <!-- Do I want this?? -->
 <div class="card" style="width: 18rem;">
-  <h5 class="code card-title">{{this.book.title}}</h5>
+  <h5 class="code card-title">{{book.title}}</h5>
   <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
   <p class="card-text">{{book.genre}}</p>
   <p class="card-text">Form: {{book.type}}</p>
   <p class="card-text">Series: {{book.series}}</p>
   <p class="card-text">{{book.status}}</p>
   <p class="card-text">{{book.notes}}</p>
-  <button class="btn btn-sm btn-warning">Edit</button>
-  <!-- <button class="btn btn-sm btn-danger">Delete</button> -->
+  <button class="btn btn-sm btn-warning" [routerLink]="['/edit', book.id]">Edit</button>
+  <button class="btn btn-sm btn-danger">Delete</button>
   <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
 </div>

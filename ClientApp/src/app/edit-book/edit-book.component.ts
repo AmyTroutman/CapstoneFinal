@@ -1,19 +1,19 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
-import { IBook } from '../ibook';
 import { ActivatedRoute } from '@angular/router';
+import { IBook } from '../ibook';
 
 @Component({
-  selector: 'app-book-view',
-  templateUrl: './book-view.component.html',
-  styleUrls: ['./book-view.component.css']
+  selector: 'app-edit-book',
+  templateUrl: './edit-book.component.html',
+  styleUrls: ['./edit-book.component.css']
 })
-export class BookViewComponent implements OnInit {
+export class EditBookComponent implements OnInit {
 
   loading = true;
   books: IBook[];
   bookId: number;
-  @Input() book;
+  book;
   options: string[];
   types: string[];
 
@@ -26,10 +26,6 @@ export class BookViewComponent implements OnInit {
     console.log(this.book);
     this.options = this.bookService.statuses;
     this.types = this.bookService.types;
-  }
-
-  async getBook() {
-    return this.bookService.GetBook(this.bookId);
   }
 
   async save(): Promise<void> {
