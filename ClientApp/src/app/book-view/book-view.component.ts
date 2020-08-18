@@ -13,7 +13,7 @@ export class BookViewComponent implements OnInit {
   loading = true;
   books: IBook[];
   bookId: number;
-  @Input() book;
+  book: IBook = {id: 0, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
   options: string[];
   types: string[];
 
@@ -22,14 +22,10 @@ export class BookViewComponent implements OnInit {
   async ngOnInit() {
     this.bookId = this.route.snapshot.params.id;
    // this.books = await this.bookService.GetBooks();
-    this.book = this.bookService.GetBook(this.bookId);
+    this.book = await this.bookService.GetBook(this.bookId);
     console.log(this.book);
-    this.options = this.bookService.statuses;
-    this.types = this.bookService.types;
-  }
-
-  async getBook() {
-    return this.bookService.GetBook(this.bookId);
+    // this.options = this.bookService.statuses;
+    // this.types = this.bookService.types;
   }
 
   async save(): Promise<void> {

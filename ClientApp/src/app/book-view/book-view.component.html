@@ -7,7 +7,7 @@
   <p class="card-text">Series: {{book.series}}</p>
   <p class="card-text">{{book.status}}</p>
   <p class="card-text">{{book.notes}}</p>
-  <button class="btn btn-sm btn-warning" [routerLink]="['/edit', book.id]">Edit</button>
-  <button class="btn btn-sm btn-danger">Delete</button>
+  <button class="btn btn-sm btn-warning" [routerLink]="['/edit', bookId]">Edit</button>
+  <button class="btn btn-sm btn-danger" (click)="deleteBook(bookId)">Delete</button>
   <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
 </div>

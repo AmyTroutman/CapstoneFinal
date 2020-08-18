@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class BookService {
 
   books: IBook[];
-  book;
+  // book: IBook;
   bookId: number;
   statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy'];
   types = ['Paperback', 'Hardback', 'eBook', 'Other'];
@@ -20,8 +20,8 @@ export class BookService {
   }
 
   async GetBook(id: number) {
-    this.book = await this.http.get<IBook>(`${this.baseUrl}books/${id}`).toPromise();
-    return this.book;
+    return await this.http.get<IBook>(`${this.baseUrl}books/${id}`).toPromise();
+    // return this.book;
   }
 
   AddBook(newBook: IBook): Promise<IBook> {
