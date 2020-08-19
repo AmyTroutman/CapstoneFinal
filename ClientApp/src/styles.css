@@ -6,7 +6,7 @@ a:hover{
   color: #e72c0a;
 }
 
-code {
+.code {
   color: #e01a76;
 }
 
@@ -21,11 +21,16 @@ html, body { height: 100%; }
 body {
    margin: 0; 
    font-family: Lato, "Helvetica Neue", sans-serif; 
-   background-color: rgb(2, 27, 51); 
+   background-color: #021b33; 
    background-image: url("../src/assets/bookEndsheet.jpg");
    background-size: cover;
    color: #ffdbcd;}
 
-.card-title {
+h5,h6 {
   color: #e72c0a;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
 }
