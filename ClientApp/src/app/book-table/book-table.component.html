@@ -40,12 +40,12 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
             <td mat-cell *matCellDef="let book">{{book.status}}</td>
         </ng-container>
-        <ng-container matColumnDef="delete">
+        <!-- <ng-container matColumnDef="delete">
             <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
             <td mat-cell *matCellDef="let book">
                 <button class="btn btn-sm btn-danger" (click)="deleteBook(book.id)">Delete</button>
             </td>
-        </ng-container>
+        </ng-container> -->
         <ng-container matColumnDef="view">
             <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
             <td mat-cell *matCellDef="let book">
