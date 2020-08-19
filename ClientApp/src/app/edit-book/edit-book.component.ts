@@ -13,7 +13,7 @@ export class EditBookComponent implements OnInit {
   loading = true;
   books: IBook[];
   bookId: number;
-  book;
+  book: IBook;
   options: string[];
   types: string[];
 
@@ -22,7 +22,7 @@ export class EditBookComponent implements OnInit {
   async ngOnInit() {
     this.bookId = this.route.snapshot.params.id;
    // this.books = await this.bookService.GetBooks();
-    this.book = this.bookService.GetBook(this.bookId);
+    this.book = await this.bookService.GetBook(this.bookId);
     console.log(this.book);
     this.options = this.bookService.statuses;
     this.types = this.bookService.types;
@@ -31,7 +31,7 @@ export class EditBookComponent implements OnInit {
   async save(): Promise<void> {
     await this.bookService.UpdateBook(this.bookId, this.book);
     this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
-    // this.books = await this.bookService.GetBooks();
+    this.books = await this.bookService.GetBooks();
   }
 
   async deleteBook(): Promise<void> {

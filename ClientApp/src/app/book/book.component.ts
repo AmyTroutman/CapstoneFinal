@@ -9,19 +9,11 @@ import { IBook } from '../ibook';
 })
 export class BookComponent implements OnInit {
 
-  @Input() book;
   books: IBook[];
 
   constructor(private bookService: BookService) { }
 
   async ngOnInit() {
     this.books = await this.bookService.GetBooks();
-  }
-
-  getBooks(status?: string) {
-    if (status === undefined) {
-      return this.books;
-    }
-    return this.books.filter(t => t.status === status);
   }
 }

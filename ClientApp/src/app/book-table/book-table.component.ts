@@ -18,7 +18,7 @@ export class BookTableComponent implements OnInit {
   searching = false;
   dataSource: MatTableDataSource<IBook>;
   displayedColumns: string[] = [
-    'id', 'title', 'author', 'series', 'genre', 'type', 'status', 'view', 'delete'
+    'id', 'title', 'author', 'series', 'genre', 'type', 'status', 'view'
   ];
   @ViewChild(MatSort, {static: true})sort: MatSort;
   @ViewChild(MatPaginator, {static: true})paginator: MatPaginator;
@@ -42,9 +42,9 @@ export class BookTableComponent implements OnInit {
     this.searching = false;
   }
 
-  async deleteBook(id: number): Promise<void> {
-    await this.bookService.DeleteBook(id);
-    this.books = await this.bookService.GetBooks();
-  }
+  // async deleteBook(id: number): Promise<void> {
+  //   await this.bookService.DeleteBook(id);
+  //   this.books = await this.bookService.GetBooks();
+  // }
 
 }
