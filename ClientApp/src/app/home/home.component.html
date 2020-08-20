@@ -25,13 +25,13 @@
     <div class="col-md-4">
       <h3>Reading Now</h3>
       <div *ngFor="let book of reading">
-        <div class="card" style="width: 18rem;">
+        <div class="card text-center" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{book.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
-            <button class="btn btn-sm btn-info" [routerLink]="['/book', book.id]">View</button>
+            <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
           </div>
         </div>
       </div>
@@ -39,13 +39,13 @@
     <div class="col-md-4">
       <h3>Reading Next</h3>
       <div *ngFor="let book of read">
-        <div class="card" style="width: 18rem;">
+        <div class="card text-center" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{book.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
-            <button class="btn btn-sm btn-info" [routerLink]="['/book', book.id]">View</button>
+            <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
           </div>
         </div>
       </div>
@@ -53,13 +53,13 @@
     <div class="col-md-4">
       <h3>Wanna Buy!</h3>
       <div *ngFor="let book of buy">
-        <div class="card" style="width: 18rem;">
+        <div class="card text-center" style="width: 18rem;">
           <div class="card-body">
             <h5 class="card-title">{{book.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
-            <button class="btn btn-sm btn-info" [routerLink]="['/book', book.id]">View</button>
+            <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
           </div>
         </div>
       </div>
@@ -67,23 +67,3 @@
   </div>
 </div>
 
-  <!-- <div class="row">
-    <div class="col-md-4">
-      <h3>Reading Now</h3>
-      <ul *ngFor="let book of reading">
-        <li>{{book.title}}</li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <h3>Reading Next</h3>
-      <ul *ngFor="let book of read">
-        <li>{{book.title}}</li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <h3>Wanna Buy!</h3>
-      <ul *ngFor="let book of buy">
-        <li>{{book.title}}</li>
-      </ul>
-    </div>
-  </div> -->

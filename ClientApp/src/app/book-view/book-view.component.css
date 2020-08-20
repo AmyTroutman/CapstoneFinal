@@ -5,6 +5,8 @@ p {
     color: #021b33;
 } 
 
-button {
-    margin: 2%;
+.card {
+    background-color: #ffdbcd;
+    color: #f08080;
 }
+
