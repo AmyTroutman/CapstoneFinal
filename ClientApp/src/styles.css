@@ -16,7 +16,8 @@ a:hover{
 }
 
 .btn-ok:hover{
-  background-color: #e72c0a;
+  background-color: #05325c;
+  color: #ffdbcd;
 }
 
 html, body { height: 100%; }
