@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookService } from '../services/book.service';
 import { ActivatedRoute } from '@angular/router';
 import { IBook } from '../ibook';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-book',
@@ -17,7 +18,7 @@ export class EditBookComponent implements OnInit {
   options: string[];
   types: string[];
 
-  constructor(private bookService: BookService, private route: ActivatedRoute) { }
+  constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) { }
 
   async ngOnInit() {
     this.bookId = this.route.snapshot.params.id;
@@ -32,6 +33,7 @@ export class EditBookComponent implements OnInit {
     await this.bookService.UpdateBook(this.bookId, this.book);
     this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
     this.books = await this.bookService.GetBooks();
+    this.router.navigate(['/book', this.bookId]);
   }
 
   async deleteBook(): Promise<void> {

@@ -5,6 +5,12 @@ p {
     color: #021b33;
 } 
 
-button {
-    margin: 2%;
+.buttons {
+    margin-left: 22%;
 }
+
+.card {
+    background-color: #ffdbcd;
+    color: #f08080;
+}
+

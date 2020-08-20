@@ -2,13 +2,6 @@ a {
     text-decoration: none;
 }
 
-.addBook {
-    color: #ffdbcd;
-}
-.addBook:hover{
-    color: #e72c0a;
-}
-
 h1 {
     color: #ffdbcd;
     text-decoration: underline;
@@ -16,5 +9,5 @@ h1 {
 
 .card {
     background-color: #ffdbcd;
-    color: lightcoral;
+    color: #f08080;
 }
