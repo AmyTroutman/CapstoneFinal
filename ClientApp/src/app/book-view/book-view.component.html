@@ -9,7 +9,7 @@
   <p class="card-text">{{book.notes}}</p>
   <div class="buttons">
     <button class="btn btn-sm btn-ok" [routerLink]="['/edit', bookId]">Edit</button>
-    <button class="btn btn-sm btn-danger" (click)="deleteBook(bookId)">Delete</button>
+    <button class="btn btn-sm btn-danger" (click)="deleteBook()">Delete</button>
     <button class="btn btn-sm btn-info" routerLink="/catalog">Nevermind!</button>
   </div>
 </div>
