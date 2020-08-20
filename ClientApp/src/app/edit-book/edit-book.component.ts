@@ -22,9 +22,7 @@ export class EditBookComponent implements OnInit {
 
   async ngOnInit() {
     this.bookId = this.route.snapshot.params.id;
-   // this.books = await this.bookService.GetBooks();
     this.book = await this.bookService.GetBook(this.bookId);
-    console.log(this.book);
     this.options = this.bookService.statuses;
     this.types = this.bookService.types;
   }
@@ -34,11 +32,6 @@ export class EditBookComponent implements OnInit {
     this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
     this.books = await this.bookService.GetBooks();
     this.router.navigate(['/book', this.bookId]);
-  }
-
-  async deleteBook(): Promise<void> {
-    await this.bookService.DeleteBook(this.bookId);
-    this.books = await this.bookService.GetBooks();
   }
 
 }

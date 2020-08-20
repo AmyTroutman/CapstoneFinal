@@ -13,7 +13,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class BookTableComponent implements OnInit {
 
-  @Input()book: IBook;
   books: IBook[];
   searching = false;
   dataSource: MatTableDataSource<IBook>;
@@ -41,10 +40,5 @@ export class BookTableComponent implements OnInit {
   cancel() {
     this.searching = false;
   }
-
-  // async deleteBook(id: number): Promise<void> {
-  //   await this.bookService.DeleteBook(id);
-  //   this.books = await this.bookService.GetBooks();
-  // }
 
 }

@@ -6,6 +6,9 @@ a.navbar-brand {
   text-align: center;
   word-break: break-all;
 }
+button {  
+  color: #f08080;
+}
 
 html {
   font-size: 14px;

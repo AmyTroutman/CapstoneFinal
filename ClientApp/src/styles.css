@@ -28,6 +28,7 @@ body {
    background-color: #021b33; 
    background-image: url("../src/assets/bookEndsheet.jpg");
    background-size: cover;
+   background-attachment: fixed;
    color: #ffdbcd;}
 
 h5,h6 {
