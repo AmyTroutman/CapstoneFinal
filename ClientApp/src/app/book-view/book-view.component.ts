@@ -20,7 +20,6 @@ export class BookViewComponent implements OnInit {
     this.bookId = this.route.snapshot.params.id;
     this.books = await this.bookService.GetBooks();
     this.book = await this.bookService.GetBook(this.bookId);
-    console.log(this.book);
   }
 
   async save(): Promise<void> {

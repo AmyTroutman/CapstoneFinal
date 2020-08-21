@@ -11,12 +11,12 @@ a:hover{
 }
 
 .btn-ok {
-  background-color: #021b33;
+  background-color: #05325c;
   color: #ffdbcd;
 }
 
 .btn-ok:hover{
-  background-color: #05325c;
+  background-color: #021b33;
   color: #ffdbcd;
 }
 
@@ -31,11 +31,16 @@ body {
    background-attachment: fixed;
    color: #ffdbcd;}
 
-h5,h6 {
-  color: #e72c0a;
+h1,h3,h5,h6 {
+  color: #cc2407;
+}
+
+h1 {
+  text-decoration: underline;
 }
 
 footer {
+  margin-top: 20%;
   bottom: 0;
 }
 

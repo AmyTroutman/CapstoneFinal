@@ -1,5 +1,5 @@
 <div *ngIf="!(isAuthenticated | async)">
-  <h1>Welcome to YOUR own library!</h1>
+  <h1>Welcome to your personal library!</h1>
   <p>Current Features:</p>
   <ul>
     <li>Can add, update, and delete books!</li>
@@ -21,49 +21,59 @@
 
 <div *ngIf="isAuthenticated | async">
   <h1>Ex Libris {{userName | async}}</h1>
+
   <div class="row">
     <div class="col-md-4">
       <h3>Reading Now</h3>
-      <div *ngFor="let book of reading">
-        <div class="card text-center" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{book.title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
-            <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+      <div *ngIf="reading.length!=0">
+        <div *ngFor="let book of reading">
+          <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{book.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
+              <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+            </div>
           </div>
         </div>
       </div>
+      <h4 *ngIf="reading.length===0">Not reading anything right now?</h4>
     </div>
+
     <div class="col-md-4">
       <h3>Reading Next</h3>
-      <div *ngFor="let book of read">
-        <div class="card text-center" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{book.title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
-            <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+      <div *ngIf="read.length!=0">
+        <div *ngFor="let book of read">
+          <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{book.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
+              <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+            </div>
           </div>
         </div>
       </div>
+        <h4 *ngIf="read.length===0">Need something to read next?</h4>
     </div>
+
     <div class="col-md-4">
       <h3>Wanna Buy!</h3>
-      <div *ngFor="let book of buy">
-        <div class="card text-center" style="width: 18rem;">
-          <div class="card-body">
-            <h5 class="card-title">{{book.title}}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
-            <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
-            <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+      <div *ngIf="buy.length!=0">
+        <div *ngFor="let book of buy">
+          <div class="card text-center" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">{{book.title}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
+              <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
+              <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+            </div>
           </div>
         </div>
       </div>
+        <h4 *ngIf="buy.length===0">How is this list empty??</h4>
     </div>
   </div>
-</div>
-
