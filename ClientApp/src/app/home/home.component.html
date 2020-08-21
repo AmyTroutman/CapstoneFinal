@@ -1,5 +1,5 @@
-<div *ngIf="!(isAuthenticated | async)">
-  <h1>Welcome to your personal library!</h1>
+<div *ngIf="!(isAuthenticated | async)" class="card">
+  <h2>Welcome to your personal library!</h2>
   <p>Current Features:</p>
   <ul>
     <li>Can add, update, and delete books!</li>
@@ -20,7 +20,7 @@
 </div>
 
 <div *ngIf="isAuthenticated | async">
-  <h1>Ex Libris {{userName | async}}</h1>
+  <h2>Ex Libris {{userName | async}}</h2>
 
   <div class="row">
     <div class="col-md-4">
@@ -30,9 +30,9 @@
           <div class="card text-center" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{book.title}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
+              <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+              <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+              <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
               <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
             </div>
           </div>
@@ -48,9 +48,9 @@
           <div class="card text-center" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{book.title}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
+              <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+              <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+              <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
               <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
             </div>
           </div>
@@ -66,9 +66,9 @@
           <div class="card text-center" style="width: 18rem;">
             <div class="card-body">
               <h5 class="card-title">{{book.title}}</h5>
-              <h6 class="card-subtitle mb-2 text-muted">{{book.author}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Series: {{book.series}}</h6>
-              <h6 class="card-subtitle mb-2 text-muted">Status: {{book.status}}</h6>
+              <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+              <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+              <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
               <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
             </div>
           </div>

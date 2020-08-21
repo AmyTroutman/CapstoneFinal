@@ -45,7 +45,12 @@ footer {
 }
 
 .card {
-  background-color: #ffdbcd;
+  background-color: rgb(2, 27, 51, 0.5);
   color: #f08080;
   width: 70%;
+}
+
+.card-subtitle {
+  color: #f08080;
+
 }
