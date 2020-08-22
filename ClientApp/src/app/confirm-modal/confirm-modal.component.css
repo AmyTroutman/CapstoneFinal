@@ -1,9 +1,7 @@
-.modal-body {
-    background-color: #ffdbcd;
-    
-    color: #021b33;
+* {
+    margin: 2%;
 }
 
-.buttons{
-   
+.pop {
+    color: #021b33;
 }
