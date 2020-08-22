@@ -8,11 +8,9 @@ import { HttpClient } from '@angular/common/http';
 export class BookService {
 
   books: IBook[];
-  // book: IBook;
   bookId: number;
   statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy'];
   types = ['Paperback', 'Hardback', 'eBook', 'Audiobook', 'Other'];
- // myUrl = this.baseUrl + 'books';
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
   GetBooks(): Promise<IBook[]> {
