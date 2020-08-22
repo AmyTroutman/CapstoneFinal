@@ -32,9 +32,10 @@ body {
    color: #ffdbcd;
   }
 
-h1,h3,h5,h6 {
+h1,h2,h3,h5,h6 {
   color: #cc2407;
 }
+
 
 h1 {
   text-decoration: underline;
@@ -49,6 +50,11 @@ footer {
   background-color: rgb(2, 27, 51, 0.5);
   color: #f08080;
   width: 70%;
+}
+
+.card li {
+  color: #ffdbcd;
+  list-style-type: none;
 }
 
 .card-subtitle {
