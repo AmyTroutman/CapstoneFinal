@@ -1,23 +1,28 @@
+<div class="card-deck">
 <div *ngIf="!(isAuthenticated | async)" class="card text-center">
-  <h2>Welcome to your personal library!</h2>
-  <p>Current Features:</p>
+  <h2 class="home">Welcome to Your Personal Catalobrary!</h2>
+  <br>
+  <h3>Current Features:</h3>
   <ul>
     <li>Can add, update, and delete books!</li>
     <li>Can view books on a table, with sorting and pagination!</li>
     <li>Can view books as cards!</li>
-    <li>Better update form!</li>
     <li>Can add books to lists!! Like "To Read" and "Have Read" and "Want to buy!"</li>
     <li>Can view those lists on the home page!</li>
+    <li>Now warns before forever-deleting a book!</li>
+    <li>Acknowledges when a new book is added!</li>
+    <li>No longer insists on more books being added!</li>
   </ul>
   
-  <p>Far Future Features!</p>
+  <h4>Far Future Features!</h4>
   <ul>
     <li>Enter the ISBN to add a book!</li>
+    <li>Book suggestions when you run out of books?!?</li>
   </ul>
 </div>
 
-<div *ngIf="isAuthenticated | async">
-  <h2>Ex Libris {{userName | async}}</h2>
+<div *ngIf="isAuthenticated | async" class="card-deck">
+  <h2 class="home">Ex Libris {{userName | async}}</h2>
 
   <div class="row">
     <div class="col-md-4">
@@ -74,3 +79,4 @@
         <h4 *ngIf="buy.length===0">How is this list empty??</h4>
     </div>
   </div>
+</div>
