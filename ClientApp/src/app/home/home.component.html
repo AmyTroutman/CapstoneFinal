@@ -41,6 +41,7 @@
         </div>
       </div>
       <h4 *ngIf="reading.length===0">Not reading anything right now?</h4>
+      <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
     </div>
 
     <div class="col-md-4">
@@ -59,6 +60,8 @@
         </div>
       </div>
         <h4 *ngIf="read.length===0">Need something to read next?</h4>
+        <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+
     </div>
 
     <div class="col-md-4">
@@ -77,6 +80,8 @@
         </div>
       </div>
         <h4 *ngIf="buy.length===0">How is this list empty??</h4>
+        <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+
     </div>
   </div>
 </div>

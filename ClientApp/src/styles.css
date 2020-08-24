@@ -7,12 +7,12 @@ a:hover{
 }
 
 .btn-ok {
-  background-color: #05325c;
+  background-color: #021b33;
   color: #ffdbcd;
 }
 
 .btn-ok:hover{
-  background-color: #021b33;
+  background-color: #05325c;
   color: #ffdbcd;
 }
 
