@@ -26,6 +26,7 @@ import { BookViewComponent } from './book-view/book-view.component';
 import { BookTableComponent } from './book-table/book-table.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
+import { SaveModalComponent } from './save-modal/save-modal.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
     BookViewComponent,
     BookTableComponent,
     EditBookComponent,
-    ConfirmModalComponent
+    ConfirmModalComponent,
+    SaveModalComponent
 
   ],
   imports: [
@@ -68,6 +70,6 @@ import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
   ],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmModalComponent]
+  entryComponents: [ConfirmModalComponent, SaveModalComponent]
 })
 export class AppModule { }
