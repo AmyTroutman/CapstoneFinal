@@ -1,87 +1,92 @@
 <div class="card-deck">
-<div *ngIf="!(isAuthenticated | async)" class="card text-center">
-  <h2 class="home">Welcome to Your Personal Catalobrary!</h2>
-  <br>
-  <h3>Current Features:</h3>
-  <ul>
-    <li>Can add, update, and delete books!</li>
-    <li>Can view books on a table, with sorting and pagination!</li>
-    <li>Can view books as cards!</li>
-    <li>Can add books to lists!! Like "To Read" and "Have Read" and "Want to buy!"</li>
-    <li>Can view those lists on the home page!</li>
-    <li>Now warns before forever-deleting a book!</li>
-    <li>Acknowledges when a new book is added!</li>
-    <li>No longer insists on more books being added!</li>
-  </ul>
-  
-  <h4>Far Future Features!</h4>
-  <ul>
-    <li>Enter the ISBN to add a book!</li>
-    <li>Book suggestions when you run out of books?!?</li>
-  </ul>
-</div>
+  <div *ngIf="!(isAuthenticated | async)" class="card text-center">
+    <h2 class="home">Welcome to Your Personal Catalobrary!</h2>
+    <br>
+    <h3>Current Features:</h3>
+    <ul>
+      <li>Can add, update, and delete books!</li>
+      <li>Can view books on a table, with sorting and pagination!</li>
+      <li>Can view books as cards!</li>
+      <li>Can add books to lists!! Like "To Read" and "Have Read" and "Want to buy!"</li>
+      <li>Can view those lists on the home page!</li>
+      <li>Now warns before forever-deleting a book!</li>
+      <li>Acknowledges when a new book is added!</li>
+      <li>No longer insists on more books being added!</li>
+    </ul>
 
-<div *ngIf="isAuthenticated | async" class="card-deck">
-  <h2 class="home">Ex Libris {{userName | async}}</h2>
+    <h4>Far Future Features!</h4>
+    <ul>
+      <li>Enter the ISBN to add a book!</li>
+      <li>Book covers, perhaps?!</li>
+      <li>Book suggestions when you run out of books?!?</li>
+    </ul>
+  </div>
 
-  <div class="row">
-    <div class="col-md-4">
-      <h3>Reading Now</h3>
-      <div *ngIf="reading.length!=0">
-        <div *ngFor="let book of reading">
-          <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{book.title}}</h5>
-              <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-              <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
-              <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
-              <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+  <div *ngIf="isAuthenticated | async" class="card-deck">
+    <h2 class="home">Ex Libris {{userName | async}}</h2>
+
+    <div class="row">
+      <div class="col-md-4">
+        <h3>Reading Now</h3>
+        <div *ngIf="reading.length!=0">
+          <div *ngFor="let book of reading">
+            <div class="card text-center" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+                <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+              </div>
             </div>
           </div>
         </div>
+        <div *ngIf="reading.length===0">
+          <h4>Not reading anything right now?</h4>
+          <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+        </div>
       </div>
-      <h4 *ngIf="reading.length===0">Not reading anything right now?</h4>
-      <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
-    </div>
 
-    <div class="col-md-4">
-      <h3>Reading Next</h3>
-      <div *ngIf="read.length!=0">
-        <div *ngFor="let book of read">
-          <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{book.title}}</h5>
-              <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-              <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
-              <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
-              <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+      <div class="col-md-4">
+        <h3>Reading Next</h3>
+        <div *ngIf="read.length!=0">
+          <div *ngFor="let book of read">
+            <div class="card text-center" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+                <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+              </div>
             </div>
           </div>
         </div>
+        <div *ngIf="read.length===0">
+          <h4>Need something to read next?</h4>
+          <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+        </div>
       </div>
-        <h4 *ngIf="read.length===0">Need something to read next?</h4>
-        <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
 
-    </div>
-
-    <div class="col-md-4">
-      <h3>Wanna Buy!</h3>
-      <div *ngIf="buy.length!=0">
-        <div *ngFor="let book of buy">
-          <div class="card text-center" style="width: 18rem;">
-            <div class="card-body">
-              <h5 class="card-title">{{book.title}}</h5>
-              <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-              <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
-              <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
-              <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+      <div class="col-md-4">
+        <h3>Wanna Buy!</h3>
+        <div *ngIf="buy.length!=0">
+          <div *ngFor="let book of buy">
+            <div class="card text-center" style="width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+                <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
+              </div>
             </div>
           </div>
         </div>
+        <div *ngIf="buy.length===0">
+          <h4>How is this list empty??</h4>
+          <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+        </div>
       </div>
-        <h4 *ngIf="buy.length===0">How is this list empty??</h4>
-        <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
-
     </div>
   </div>
-</div>

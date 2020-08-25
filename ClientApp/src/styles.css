@@ -7,12 +7,12 @@ a:hover{
 }
 
 .btn-ok {
-  background-color: #021b33;
+  background-color: #05325c;
   color: #ffdbcd;
 }
 
 .btn-ok:hover{
-  background-color: #05325c;
+  background-color: #021b33;
   color: #ffdbcd;
 }
 
@@ -48,7 +48,6 @@ footer {
 
 .card {
   background-color: rgb(2, 27, 51, 0.5);
-  color: #f08080;
   width: 100%;
 }
 
@@ -58,6 +57,7 @@ footer {
 }
 
 .card-subtitle {
-  color: #f08080;
+  color: #ffdbcd;
 
 }
+
