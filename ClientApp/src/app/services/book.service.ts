@@ -9,7 +9,7 @@ export class BookService {
 
   books: IBook[];
   bookId: number;
-  statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy'];
+  statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy', 'Didn\'t Finish'];
   types = ['Paperback', 'Hardback', 'eBook', 'Audiobook', 'Other'];
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
