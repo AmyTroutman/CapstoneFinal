@@ -1,5 +1,9 @@
 <div class="card text-center">
   <h3>Add a book to the catalog</h3>
+  <div>
+    <input [(ngModel)]="isbn">
+    <button (click)="getByIsbn()">Add</button>
+  </div>
   <div class="align-items-center">
     <form>
       <div class="row">
