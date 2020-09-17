@@ -2,6 +2,15 @@
     margin: 1%;
 }
 
+.card-title{
+    font-size: 2em;
+    text-decoration: underline;
+}
+.card-subtitle{
+    font-family: 'Alice', serif;
+    font-size: 1.5em;
+}
+
 
 
 

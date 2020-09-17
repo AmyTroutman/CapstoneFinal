@@ -6,6 +6,9 @@ a:hover{
   color: #e72c0a;
 }
 
+.btn {
+  font-family: Lato, "Helvetica Neue", sans-serif; 
+}
 .btn-ok {
   background-color: #05325c;
   color: #ffdbcd;
@@ -30,6 +33,7 @@ body {
 
 h1,h2,h3,h5,h6 {
   color: #f08080;
+  font-family: 'Alice', serif;
 }
 
 h1 {
@@ -47,17 +51,23 @@ footer {
 }
 
 .card {
-  background-color: rgb(2, 27, 51, 0.5);
+  background-color: #c56458b5;
+  border: 2px solid #05325c;
   width: 100%;
+  color: #001036;
+  font-family: 'Alice', serif;
 }
 
 .card li {
-  color: #ffdbcd;
   list-style-type: none;
 }
 
-.card-subtitle {
-  color: #ffdbcd;
+.card-title{
+  text-decoration: underline;
+}
 
+.card-subtitle {
+  color: #001036;
+  font-size: 1em;
 }
 

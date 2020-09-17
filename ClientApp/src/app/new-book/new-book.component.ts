@@ -17,6 +17,7 @@ export class NewBookComponent implements OnInit {
   created = false;
   options: string[];
   types: string[];
+  isbn;
   constructor(private bookService: BookService, private modalService: NgbModal) { }
 
   async ngOnInit() {
@@ -37,7 +38,12 @@ export class NewBookComponent implements OnInit {
     //   await this.bookService.AddBook(this.newBook);
     //   this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
     // }
+  }
 
+  async getByIsbn() {
+    // isbn = '0618154000';
+    const book = await this.bookService.getByIsbn(this.isbn);
+    console.log(book);
   }
 
 }

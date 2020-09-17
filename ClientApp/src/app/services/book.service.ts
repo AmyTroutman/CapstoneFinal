@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { IBook } from '../ibook';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from './api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class BookService {
   statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy', 'Didn\'t Finish'];
   types = ['Paperback', 'Hardback', 'eBook', 'Audiobook', 'Other'];
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
+  constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string, private apiService: ApiService) { }
 
   GetBooks(): Promise<IBook[]> {
      return this.http.get<IBook[]>(`${this.baseUrl}books`).toPromise();
@@ -36,6 +37,10 @@ export class BookService {
 
   getStatus(): string[] {
     return this.statuses;
+  }
+
+  async getByIsbn(isbn: number) {
+    return await this.apiService.getByIsbn('?bibkeys=ISBN:' + isbn + '&jscmd=data&format=json');
   }
 
 }
