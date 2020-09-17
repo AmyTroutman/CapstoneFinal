@@ -51,7 +51,7 @@ footer {
 }
 
 .card {
-  background-color: #c56458b5;
+  background-color: #c56558ce;
   border: 2px solid #05325c;
   width: 100%;
   color: #001036;
@@ -64,6 +64,7 @@ footer {
 
 .card-title{
   text-decoration: underline;
+  color: #001036;
 }
 
 .card-subtitle {
