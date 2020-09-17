@@ -1,9 +1,9 @@
 <div class="card-deck">
     <div class="row">
         <div *ngFor="let book of books" class="col-4 m-auto">
-            <div class="card text-center">
+            <div class="card text-center" style="width: 18rem; height: 10rem; margin:2%;">
                 <div class="card-body">
-                    <h5 class="card-title">{{book.title}}</h5>
+                    <h4 class="card-title">{{book.title}}</h4>
                     <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
                     <h6 class="card-subtitle mb-2 " *ngIf="book.series!='none'">Series: {{book.series}}</h6>
                     <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
