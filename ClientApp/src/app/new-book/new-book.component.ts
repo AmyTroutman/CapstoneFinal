@@ -13,7 +13,6 @@ export class NewBookComponent implements OnInit {
 
   currentUserId;
   public newBook: IBook = {title: '', author: '', notes: '', series: '', type: '', genre: '', status: ''};
-  // public books: IBook[];
   created = false;
   options: string[];
   types: string[];
@@ -21,7 +20,6 @@ export class NewBookComponent implements OnInit {
   constructor(private bookService: BookService, private modalService: NgbModal) { }
 
   async ngOnInit() {
-   // this.books = await this.bookService.GetBooks();
    this.options = this.bookService.statuses;
    this.types = this.bookService.types;
   }
@@ -33,15 +31,9 @@ export class NewBookComponent implements OnInit {
 
     await this.bookService.AddBook(this.newBook);
       this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
-    // const theResult = await modal.result;
-    // if (theResult === 'yes') {
-    //   await this.bookService.AddBook(this.newBook);
-    //   this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
-    // }
   }
 
   async getByIsbn() {
-    // isbn = '0618154000';
     const book = await this.bookService.getByIsbn(this.isbn);
     console.log(book);
   }
