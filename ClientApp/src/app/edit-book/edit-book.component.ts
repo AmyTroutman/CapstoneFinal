@@ -28,6 +28,9 @@ export class EditBookComponent implements OnInit {
   }
 
   async save(): Promise<void> {
+    if (this.book.series === '') {
+      this.book.series = 'n/a';
+    }
     await this.bookService.UpdateBook(this.bookId, this.book);
     this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
     this.books = await this.bookService.GetBooks();

@@ -34,7 +34,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
                 <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+                <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
                 <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
                 <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
               </div>
@@ -55,7 +55,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
                 <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+                <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
                 <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
                 <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
               </div>
@@ -76,7 +76,7 @@
               <div class="card-body">
                 <h5 class="card-title">{{book.title}}</h5>
                 <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                <h6 class="card-subtitle mb-2 ">Series: {{book.series}}</h6>
+                <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
                 <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
                 <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
               </div>

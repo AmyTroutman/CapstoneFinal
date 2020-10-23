@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBook } from '../ibook';
 import { BookService } from '../services/book.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -17,6 +17,8 @@ export class NewBookComponent implements OnInit {
   options: string[];
   types: string[];
   isbn;
+  @ViewChild('f', {static: true}) form: any;
+
   constructor(private bookService: BookService, private modalService: NgbModal) { }
 
   async ngOnInit() {
@@ -29,6 +31,9 @@ export class NewBookComponent implements OnInit {
     const modalComponent = modal.componentInstance;
     modalComponent.modalInstance = modal;
 
+    if (this.newBook.series === '') {
+      this.newBook.series = 'n/a';
+    }
     await this.bookService.AddBook(this.newBook);
       this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
   }
