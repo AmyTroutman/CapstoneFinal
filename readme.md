@@ -16,3 +16,4 @@ If I have the ISBN, I can get the correct book cover easy. But rather than put i
 Check OpenLibrary API for how book covers work (like moviedb?)
 
 Ok. Got all the hookups, but need to learn how to access the docs array inside of results. searchResults.docs is where the actual data is.
+Maybe for now focus on getting data via ISBN....
