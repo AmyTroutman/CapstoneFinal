@@ -7,5 +7,6 @@ export interface IBook {
         type: string;
         notes: string;
         status: string;
+        loaned: boolean;
         userId?: string;
 }

@@ -12,11 +12,12 @@ import { SaveModalComponent } from '../save-modal/save-modal.component';
 export class NewBookComponent implements OnInit {
 
   currentUserId;
-  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: '', genre: '', status: ''};
+  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: '', genre: '', status: '', loaned: false};
   created = false;
   options: string[];
   types: string[];
-  isbn;
+  isbn: number;
+  results: any[];
   @ViewChild('f', {static: true}) form: any;
 
   constructor(private bookService: BookService, private modalService: NgbModal) { }
@@ -35,12 +36,17 @@ export class NewBookComponent implements OnInit {
       this.newBook.series = 'n/a';
     }
     await this.bookService.AddBook(this.newBook);
-      this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
+      this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', loaned: false};
   }
 
   async getByIsbn() {
     const book = await this.bookService.getByIsbn(this.isbn);
     console.log(book);
+  }
+
+  async getCover(title: string) {
+    await this.bookService.getCover(title);
+    this.results = this.bookService.searchResults;
   }
 
 }

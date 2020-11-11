@@ -32,7 +32,7 @@ export class EditBookComponent implements OnInit {
       this.book.series = 'n/a';
     }
     await this.bookService.UpdateBook(this.bookId, this.book);
-    this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
+    this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', loaned: false};
     this.books = await this.bookService.GetBooks();
     this.router.navigate(['/book', this.bookId]);
   }

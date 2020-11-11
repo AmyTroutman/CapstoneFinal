@@ -10,3 +10,9 @@ When editing, if a book is already marked as borrowed or loaned, you can return 
 Borrowed and loaned run off the same table.
 
 Set an if statement in the add function for newBook: if loaned is true, call the loanController and pass the data.
+
+### Book Cover
+If I have the ISBN, I can get the correct book cover easy. But rather than put it on the user to get the ISBN, maybe I just have a "Select book cover" modal that shows all the results based on the title the user gives. 
+Check OpenLibrary API for how book covers work (like moviedb?)
+
+Ok. Got all the hookups, but need to learn how to access the docs array inside of results. searchResults.docs is where the actual data is.

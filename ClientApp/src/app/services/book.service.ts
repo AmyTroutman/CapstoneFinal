@@ -12,6 +12,7 @@ export class BookService {
   bookId: number;
   statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy', 'Didn\'t Finish'];
   types = ['Paperback', 'Hardback', 'eBook', 'Audiobook', 'Other'];
+  searchResults: any[] = [];
 
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string, private apiService: ApiService) { }
 
@@ -41,6 +42,12 @@ export class BookService {
 
   async getByIsbn(isbn: number) {
     return await this.apiService.getByIsbn('?bibkeys=ISBN:' + isbn + '&jscmd=data&format=json');
+  }
+
+  async getCover(title: string): Promise<void> {
+    // const response = await this.apiService.get(title);
+    this.searchResults.length = 0;
+    this.searchResults.push(await this.apiService.get(title));
   }
 
 }
