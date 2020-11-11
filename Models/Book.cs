@@ -19,7 +19,8 @@ namespace capstone.Models
         public string Type { get; set; }
         public string Notes { get; set; }
         public string Status { get; set; }
-        // add a loaned boolean and migrate
+        public bool Loaned { get; set; }
+
         public string UserId { get; set; }
         public ApplicationUser User { get; set; }
     }
