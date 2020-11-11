@@ -17,3 +17,11 @@ Check OpenLibrary API for how book covers work (like moviedb?)
 
 Ok. Got all the hookups, but need to learn how to access the docs array inside of results. searchResults.docs is where the actual data is.
 Maybe for now focus on getting data via ISBN....
+
+pattern for searching by title:
+http://openlibrary.org/search.json?title=Rhythm+of+War
+pattern for cover image:
+http://covers.openlibrary.org/b/id/10150945-L.jpg
+
+[OpenLibrary Search API](https://openlibrary.org/dev/docs/api/search)
+[OpenLibrary Books API](https://openlibrary.org/dev/docs/api/books)
