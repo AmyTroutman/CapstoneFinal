@@ -55,7 +55,7 @@ export class EditBookComponent implements OnInit {
   }
 
   chooseCover(id: string) {
-    this.book.cover = `http://covers.openlibrary.org/b/id/${id}-M.jpg`;
+    this.book.cover = id.toString();
     this.results.length = 0;
   }
 

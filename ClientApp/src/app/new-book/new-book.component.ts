@@ -59,7 +59,7 @@ export class NewBookComponent implements OnInit {
   }
 
   chooseCover(id: string) {
-    this.newBook.cover = id;
+    this.newBook.cover = id.toString();
     this.results.length = 0;
   }
 }
