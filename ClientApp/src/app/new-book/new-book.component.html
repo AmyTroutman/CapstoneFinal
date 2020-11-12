@@ -75,7 +75,7 @@
       <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
     </form>
     <div *ngFor="let result of results">
-      <img [hidden]="!result.cover_i" src="http://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="">
+      <img [hidden]="!result.cover_i" src="http://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="{{result.title}} cover image" (click)="chooseCover(result.cover_i)">
     </div>
   </div>
 </div>

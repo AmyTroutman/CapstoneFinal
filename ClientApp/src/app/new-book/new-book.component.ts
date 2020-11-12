@@ -12,7 +12,16 @@ import { SaveModalComponent } from '../save-modal/save-modal.component';
 export class NewBookComponent implements OnInit {
 
   currentUserId;
-  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: '', genre: '', status: '', loaned: false};
+  public newBook: IBook = {
+    title: '',
+    author: '',
+    notes: '',
+    series: '',
+    type: '',
+    genre: '',
+    status: '',
+    cover: '',
+    loaned: false};
   created = false;
   options: string[];
   types: string[];
@@ -36,7 +45,7 @@ export class NewBookComponent implements OnInit {
       this.newBook.series = 'n/a';
     }
     await this.bookService.AddBook(this.newBook);
-      this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', loaned: false};
+      this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', cover: '', loaned: false};
   }
 
   async getByIsbn() {
@@ -49,4 +58,8 @@ export class NewBookComponent implements OnInit {
     this.results = this.bookService.searchResults[0].docs;
   }
 
+  chooseCover(id: string) {
+    this.newBook.cover = id;
+    this.results.length = 0;
+  }
 }

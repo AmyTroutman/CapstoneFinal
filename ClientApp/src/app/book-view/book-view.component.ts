@@ -24,6 +24,7 @@ export class BookViewComponent implements OnInit {
     userId: '',
     genre: '',
     status: '',
+    cover: '',
     loaned: false
 };
 
@@ -47,6 +48,7 @@ export class BookViewComponent implements OnInit {
       userId: '',
       genre: '',
       status: '',
+      cover: '',
       loaned: false };
     this.books = await this.bookService.GetBooks();
   }

@@ -40,8 +40,12 @@
           <textarea class="form-control" [(ngModel)]="book.notes" name="notes" id="notes" rows="3"></textarea>
         </div>
       </div>
+      <button class="btn btn-ok" (click)="getCover(book.title)">Choose Book Cover</button>
       <button class="btn btn-ok" (click)="save()">Save Changes</button>
       <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
     </form>
+    <div *ngFor="let result of results">
+      <img [hidden]="!result.cover_i" src="http://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="{{result.title}} cover image" (click)="chooseCover(result.cover_i)">
+    </div>
   </div>
 </div>

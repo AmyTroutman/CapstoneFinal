@@ -17,6 +17,7 @@ export class EditBookComponent implements OnInit {
   book: IBook;
   options: string[];
   types: string[];
+  results: any[];
 
   constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) { }
 
@@ -32,9 +33,30 @@ export class EditBookComponent implements OnInit {
       this.book.series = 'n/a';
     }
     await this.bookService.UpdateBook(this.bookId, this.book);
-    this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', loaned: false};
+    this.book = {
+      id: this.bookId,
+      title: '',
+      author: '',
+      notes: '',
+      series: '',
+      type: '',
+      userId: '',
+      genre: '',
+      status: '',
+      cover: '',
+      loaned: false};
     this.books = await this.bookService.GetBooks();
     this.router.navigate(['/book', this.bookId]);
+  }
+
+  async getCover(title: string) {
+    await this.bookService.getCover(title);
+    this.results = this.bookService.searchResults[0].docs;
+  }
+
+  chooseCover(id: string) {
+    this.book.cover = `http://covers.openlibrary.org/b/id/${id}-M.jpg`;
+    this.results.length = 0;
   }
 
 }
