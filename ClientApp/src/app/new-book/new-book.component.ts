@@ -46,7 +46,7 @@ export class NewBookComponent implements OnInit {
 
   async getCover(title: string) {
     await this.bookService.getCover(title);
-    this.results = this.bookService.searchResults;
+    this.results = this.bookService.searchResults[0].docs;
   }
 
 }

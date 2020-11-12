@@ -75,7 +75,7 @@
       <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
     </form>
     <div *ngFor="let result of results">
-      <p>title: {{result.title}}</p>
+      <img [hidden]="!result.cover_i" src="http://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="">
     </div>
   </div>
 </div>
