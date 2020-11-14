@@ -1,33 +1,29 @@
-<div class="card text-center">
-  <h3 class="card-title">Edit {{book.title}}</h3>
+<div class="container card text-center">
+  <h3>Edit {{book.title}}</h3>
   <div class="align-items-center">
     <form>
-      <div class="row">
+      <div class="row align-items-center">
+        <div class="col">
+          <img src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg" alt="{{book.title}} cover image">
+        </div>
         <div class="col">
           <label for="title">Title</label>
           <input class="form-control" type="text" [(ngModel)]="book.title" name="title" id="title" />
+          <label for="genre">Genre</label>
+          <input class="form-control" type="text" [(ngModel)]="book.genre" name="genre" id="genre" />
         </div>
         <div class="col">
           <label for="author">Author</label>
           <input class="form-control" type="text" [(ngModel)]="book.author" name="author" id="author" />
-        </div>
-        <div class="col">
-          <label for="genre">Genre</label>
-          <input class="form-control" type="text" [(ngModel)]="book.genre" name="genre" id="genre" />
-        </div>
-      </div>
-      <div class="row">
-        <div class="col">
           <label for="series">Series</label>
           <input class="form-control" type="text" [(ngModel)]="book.series" name="series" id="series" />
         </div>
+
         <div class="col">
           <label for="status">Status</label>
           <select class="form-control" [(ngModel)]="book.status" name="status" id="status">
             <option *ngFor="let stat of options" [value]="stat">{{stat}}</option>
           </select>
-        </div>
-        <div class="col">
           <label for="type">Type</label>
           <select class="form-control" [(ngModel)]="book.type" name="type" id="type">
             <option *ngFor="let type of types" [value]="type">{{type}}</option>
@@ -40,8 +36,18 @@
           <textarea class="form-control" [(ngModel)]="book.notes" name="notes" id="notes" rows="3"></textarea>
         </div>
       </div>
+      <button class="btn btn-ok" (click)="getCover(book.title)">Choose Book Cover</button>
       <button class="btn btn-ok" (click)="save()">Save Changes</button>
       <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
     </form>
+    <p *ngIf="!results">No cover found!</p>
+    <p *ngIf="results">Covers found: {{results.length}}</p>
+    <div class="row">
+      <div [hidden]="!result.cover_i" class="col" *ngFor="let result of results">
+        <img 
+          src="https://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="{{result.title}} cover image"
+          (click)="chooseCover(result)">
+      </div>
+    </div>
   </div>
 </div>

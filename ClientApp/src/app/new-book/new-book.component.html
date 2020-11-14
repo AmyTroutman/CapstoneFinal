@@ -2,18 +2,32 @@
   <h3 class="card-title">Add a book to the catalog</h3>
   <!-- <div>
     <input [(ngModel)]="isbn">
-    <button (click)="getByIsbn()">Add</button>
+    <button class="btn btn-ok" (click)="getByIsbn()">Add</button>
   </div> -->
   <div class="align-items-center">
-    <form>
+    <form novalidate #f="ngForm">
       <div class="row">
-        <div class="col">
+        <div class="col" [ngClass]="{
+          'has-danger': title.invalid && (title.dirty || title.touched),
+          'has-success': title.valid && (title.dirty || title.touched)
+     }">
           <label class="card-subtitle" for="title">Title</label>
-          <input class="form-control" type="text" [(ngModel)]="newBook.title" name="title" id="title" />
+          <input class="form-control" required type="text" [(ngModel)]="newBook.title" name="title" id="title"
+            #title="ngModel" />
+          <div class="form-control-feedback" *ngIf="title.errors && (title.dirty || title.touched)">
+            <p *ngIf="title.errors.required">Come on now, give me something</p>
+          </div>
         </div>
-        <div class="col">
+        <div class="col" [ngClass]="{
+          'has-danger': author.invalid && (title.dirty || title.touched),
+          'has-success': author.valid && (title.dirty || title.touched)
+     }">
           <label class="card-subtitle" for="author">Author</label>
-          <input class="form-control" type="text" [(ngModel)]="newBook.author" name="author" id="author" />
+          <input class="form-control" required type="text" [(ngModel)]="newBook.author" name="author" id="author"
+            #author="ngModel" />
+          <div class="form-control-feedback" *ngIf="author.errors && (author.dirty || author.touched)">
+            <p *ngIf="author.errors.required">Give me a name, any name</p>
+          </div>
         </div>
         <div class="col">
           <label class="card-subtitle" for="genre">Genre</label>
@@ -23,19 +37,33 @@
       <div class="row">
         <div class="col">
           <label class="card-subtitle" for="series">Series</label>
-          <input class="form-control" type="text" [(ngModel)]="newBook.series" name="series" id="series" />
+          <input class="form-control" type="text" [(ngModel)]="newBook.series" name="series" id="series"
+            placeholder="Leave blank if none" />
         </div>
-        <div class="col">
+        <div class="col" [ngClass]="{
+          'has-danger': status.invalid && (status.dirty || status.touched),
+          'has-success': status.valid && (status.dirty || status.touched)
+     }">
           <label class="card-subtitle" for="status">Status</label>
-          <select class="form-control" [(ngModel)]="newBook.status" name="status" id="status">
+          <select class="form-control" required [(ngModel)]="newBook.status" name="status" id="status"
+            #status="ngModel">
             <option *ngFor="let stat of options" [value]="stat">{{stat}}</option>
           </select>
+          <div class="form-control-feedback" *ngIf="status.errors && (status.dirty || status.touched)">
+            <p *ngIf="status.errors.required">What's up with this book??</p>
+          </div>
         </div>
-        <div class="col">
+        <div class="col" [ngClass]="{
+          'has-danger': type.invalid && (type.dirty || type.touched),
+          'has-success': type.valid && (type.dirty || type.touched)
+     }">
           <label class="card-subtitle" for="type">Type</label>
-          <select class="form-control" [(ngModel)]="newBook.type" name="type" id="type">
+          <select class="form-control" required [(ngModel)]="newBook.type" name="type" id="type" #type="ngModel">
             <option *ngFor="let type of types" [value]="type">{{type}}</option>
           </select>
+          <div class="form-control-feedback" *ngIf="type.errors && (type.dirty || type.touched)">
+            <p *ngIf="type.errors.required">It exists in some form, surely?</p>
+          </div>
         </div>
       </div>
       <div class="row">
@@ -44,8 +72,19 @@
           <textarea class="form-control" [(ngModel)]="newBook.notes" name="notes" id="notes" rows="3"></textarea>
         </div>
       </div>
-      <button class="btn btn-ok" (click)="save()">Save</button>
+      <button class="btn btn-ok" [disabled]="title.invalid" (click)="getCover(newBook.title)">Choose Book Cover</button>
+      <button type="submit" [disabled]="f.invalid" class="btn btn-ok" (click)="save()">Save</button>
       <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
     </form>
+
+    <p *ngIf="!results">No cover found!</p>
+    <p *ngIf="results">Covers found: {{results.length}}</p>
+    <div class="row">
+      <div [hidden]="!result.cover_i" class="col" *ngFor="let result of results">
+        <img 
+          src="https://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="{{result.title}} cover image"
+          (click)="chooseCover(result)">
+      </div>
+    </div>
   </div>
 </div>

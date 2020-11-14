@@ -23,7 +23,7 @@ html, body { height: 100%; }
 
 body {
    margin: 0; 
-   font-family: Lato, "Helvetica Neue", sans-serif; 
+   font-family: 'Lato', "Helvetica Neue", sans-serif; 
    background-color: #021b33; 
    background-image: url("../src/assets/bookEndsheet.jpg");
    background-size: cover;

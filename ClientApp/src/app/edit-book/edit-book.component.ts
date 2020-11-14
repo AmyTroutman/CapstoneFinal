@@ -17,6 +17,7 @@ export class EditBookComponent implements OnInit {
   book: IBook;
   options: string[];
   types: string[];
+  results: any[];
 
   constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) { }
 
@@ -28,10 +29,34 @@ export class EditBookComponent implements OnInit {
   }
 
   async save(): Promise<void> {
+    if (this.book.series === '') {
+      this.book.series = 'n/a';
+    }
     await this.bookService.UpdateBook(this.bookId, this.book);
-    this.book = {id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
+    this.book = {
+      id: this.bookId,
+      title: '',
+      author: '',
+      notes: '',
+      series: '',
+      type: '',
+      userId: '',
+      genre: '',
+      status: '',
+      cover: '',
+      loaned: false};
     this.books = await this.bookService.GetBooks();
     this.router.navigate(['/book', this.bookId]);
+  }
+
+  async getCover(title: string) {
+    await this.bookService.getCover(title);
+    this.results = this.bookService.searchResults[0].docs;
+  }
+
+  chooseCover(result) {
+    this.book.cover = result.cover_i.toString();
+    this.results.length = 0;
   }
 
 }

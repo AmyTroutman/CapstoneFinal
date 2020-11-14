@@ -14,7 +14,19 @@ export class BookViewComponent implements OnInit {
 
   books: IBook[];
   bookId: number;
-  book: IBook = { id: 0, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '' };
+  book: IBook = {
+    id: 0,
+    title: '',
+    author: '',
+    notes: '',
+    series: '',
+    type: '',
+    userId: '',
+    genre: '',
+    status: '',
+    cover: '',
+    loaned: false
+};
 
   constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router, private modalService: NgbModal) { }
 
@@ -26,7 +38,18 @@ export class BookViewComponent implements OnInit {
 
   async save(): Promise<void> {
     await this.bookService.UpdateBook(this.bookId, this.book);
-    this.book = { id: this.bookId, title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '' };
+    this.book = {
+      id: this.bookId,
+      title: '',
+      author: '',
+      notes: '',
+      series: '',
+      type: '',
+      userId: '',
+      genre: '',
+      status: '',
+      cover: '',
+      loaned: false };
     this.books = await this.bookService.GetBooks();
   }
 

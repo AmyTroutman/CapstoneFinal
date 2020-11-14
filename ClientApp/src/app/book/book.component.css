@@ -1,9 +1,8 @@
 .card{
     width: 18rem; 
-    height: 10rem; 
     margin-top:2%;
 }
 
-.card-title{
-    font-size: 1.25em;
+img {
+    width: 10rem;
 }

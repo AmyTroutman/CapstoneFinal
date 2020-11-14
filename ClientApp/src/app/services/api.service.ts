@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IBook } from '../ibook';
 
 @Injectable({
@@ -7,15 +7,15 @@ import { IBook } from '../ibook';
 })
 export class ApiService {
   private booksUrl = 'https://openlibrary.org/api/books';
+  private searchUrl = 'https://openlibrary.org/search.json?title=';
   constructor(private httpClient: HttpClient) { }
 
-  async get(options?: any): Promise<IBook[]> {
-    return this.httpClient.get<IBook[]>(this.booksUrl, {
-      headers: null, params: options
-    }).toPromise();
+  get(searchTerm: string): Promise<any> {
+    return this.httpClient.get<any[]>(`${this.searchUrl}${searchTerm.split(' ').join('+')}`).toPromise();
   }
 
   async getByIsbn(path) {
     return await this.httpClient.get<IBook[]>(this.booksUrl + path).toPromise();
   }
+
 }

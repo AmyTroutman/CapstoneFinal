@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { IBook } from '../ibook';
 import { BookService } from '../services/book.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -12,16 +12,26 @@ import { SaveModalComponent } from '../save-modal/save-modal.component';
 export class NewBookComponent implements OnInit {
 
   currentUserId;
-  public newBook: IBook = {title: '', author: '', notes: '', series: '', type: '', genre: '', status: ''};
-  // public books: IBook[];
+  public newBook: IBook = {
+    title: '',
+    author: '',
+    notes: '',
+    series: '',
+    type: '',
+    genre: '',
+    status: '',
+    cover: '',
+    loaned: false};
   created = false;
   options: string[];
   types: string[];
-  isbn;
+  isbn: number;
+  results: any[];
+  @ViewChild('f', {static: true}) form: any;
+
   constructor(private bookService: BookService, private modalService: NgbModal) { }
 
   async ngOnInit() {
-   // this.books = await this.bookService.GetBooks();
    this.options = this.bookService.statuses;
    this.types = this.bookService.types;
   }
@@ -31,19 +41,25 @@ export class NewBookComponent implements OnInit {
     const modalComponent = modal.componentInstance;
     modalComponent.modalInstance = modal;
 
+    if (this.newBook.series === '') {
+      this.newBook.series = 'n/a';
+    }
     await this.bookService.AddBook(this.newBook);
-      this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
-    // const theResult = await modal.result;
-    // if (theResult === 'yes') {
-    //   await this.bookService.AddBook(this.newBook);
-    //   this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: ''};
-    // }
+    this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', cover: '', loaned: false};
   }
 
   async getByIsbn() {
-    // isbn = '0618154000';
     const book = await this.bookService.getByIsbn(this.isbn);
     console.log(book);
   }
 
+  async getCover(title: string) {
+    await this.bookService.getCover(title);
+    this.results = this.bookService.searchResults[0].docs;
+  }
+
+  chooseCover(result) {
+    this.newBook.cover = result.cover_i.toString();
+    this.results.length = 0;
+  }
 }

@@ -1,14 +1,14 @@
-<div class="card-deck">
+<div class="container">
     <div class="row">
-        <div *ngFor="let book of books" class="col-4 m-auto">
-            <div class="card text-center" style="width: 18rem; height: 10rem; margin:2%;">
-                <div class="card-body">
-                    <h4 class="card-title">{{book.title}}</h4>
-                    <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                    <h6 class="card-subtitle mb-2 " *ngIf="book.series!='none'">Series: {{book.series}}</h6>
-                    <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
-                    <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
-                </div>
+        <div *ngFor="let book of books" class="col">
+            <div class="card text-center">
+                <a [routerLink]="['/book', book.id]">
+                    <div class="card-body">
+                        <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg" alt="{{book.title}} cover image">
+                        <h4 class="card-title">{{book.title}}</h4>
+                        <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
