@@ -54,8 +54,8 @@ export class EditBookComponent implements OnInit {
     this.results = this.bookService.searchResults[0].docs;
   }
 
-  chooseCover(id: string) {
-    this.book.cover = id.toString();
+  chooseCover(result) {
+    this.book.cover = result.cover_i.toString();
     this.results.length = 0;
   }
 

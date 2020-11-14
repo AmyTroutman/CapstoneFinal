@@ -31,17 +31,20 @@
         <div *ngIf="reading.length!=0">
           <div *ngFor="let book of reading">
             <div class="card text-center" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
-                <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
-                <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
-                <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
-              </div>
+              <a [routerLink]="['/book', book.id]">
+                <div class="card-body">
+                  <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
+                    alt="{{book.title}} cover image" style="width: 5rem;">
+                  <h5 class="card-title">{{book.title}}</h5>
+                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
+                  <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                </div>
+              </a>
             </div>
           </div>
         </div>
-        <div *ngIf="reading.length===0">
+        <div class="text-center" *ngIf="!reading">
           <h4>Not reading anything right now?</h4>
           <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
         </div>
@@ -52,17 +55,20 @@
         <div *ngIf="read.length!=0">
           <div *ngFor="let book of read">
             <div class="card text-center" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
-                <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
-                <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
-                <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
-              </div>
+              <a [routerLink]="['/book', book.id]">
+                <div class="card-body">
+                  <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
+                    alt="{{book.title}} cover image" style="width: 5rem;">
+                  <h5 class="card-title">{{book.title}}</h5>
+                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
+                  <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                </div>
+              </a>
             </div>
           </div>
         </div>
-        <div *ngIf="read.length===0">
+        <div class="text-center" *ngIf="read.length===0">
           <h4>Need something to read next?</h4>
           <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
         </div>
@@ -73,17 +79,20 @@
         <div *ngIf="buy.length!=0">
           <div *ngFor="let book of buy">
             <div class="card text-center" style="width: 18rem;">
-              <div class="card-body">
-                <h5 class="card-title">{{book.title}}</h5>
-                <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
-                <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
-                <button class="btn btn-sm btn-ok" [routerLink]="['/book', book.id]">View</button>
-              </div>
+              <a [routerLink]="['/book', book.id]">
+                <div class="card-body">
+                  <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
+                    alt="{{book.title}} cover image" style="width: 5rem;">
+                  <h5 class="card-title">{{book.title}}</h5>
+                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
+                  <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                </div>
+              </a>
             </div>
           </div>
         </div>
-        <div *ngIf="buy.length===0">
+        <div class="text-center" *ngIf="buy.length===0">
           <h4>How is this list empty??</h4>
           <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
         </div>

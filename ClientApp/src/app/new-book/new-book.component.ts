@@ -45,7 +45,7 @@ export class NewBookComponent implements OnInit {
       this.newBook.series = 'n/a';
     }
     await this.bookService.AddBook(this.newBook);
-      this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', cover: '', loaned: false};
+    this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', cover: '', loaned: false};
   }
 
   async getByIsbn() {
@@ -58,8 +58,8 @@ export class NewBookComponent implements OnInit {
     this.results = this.bookService.searchResults[0].docs;
   }
 
-  chooseCover(id: string) {
-    this.newBook.cover = id.toString();
+  chooseCover(result) {
+    this.newBook.cover = result.cover_i.toString();
     this.results.length = 0;
   }
 }
