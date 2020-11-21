@@ -27,6 +27,7 @@ export class NewBookComponent implements OnInit {
   types: string[];
   isbn: number;
   results: any[];
+  message: string;
   @ViewChild('f', {static: true}) form: any;
 
   constructor(private bookService: BookService, private modalService: NgbModal) { }
@@ -56,6 +57,11 @@ export class NewBookComponent implements OnInit {
   async getCover(title: string) {
     await this.bookService.getCover(title);
     this.results = this.bookService.searchResults[0].docs;
+    if (this.results.length === 0) {
+      this.message = 'No covers found';
+    } else {
+      this.message = `Covers found: ${this.results.length}`;
+    }
   }
 
   chooseCover(result) {

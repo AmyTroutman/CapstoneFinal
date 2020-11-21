@@ -18,6 +18,7 @@ export class EditBookComponent implements OnInit {
   options: string[];
   types: string[];
   results: any[];
+  message: string;
 
   constructor(private bookService: BookService, private route: ActivatedRoute, private router: Router) { }
 
@@ -46,12 +47,17 @@ export class EditBookComponent implements OnInit {
       cover: '',
       loaned: false};
     this.books = await this.bookService.GetBooks();
-    this.router.navigate(['/book', this.bookId]);
+    this.router.navigate(['/catalog']);
   }
 
   async getCover(title: string) {
     await this.bookService.getCover(title);
     this.results = this.bookService.searchResults[0].docs;
+    if (this.results.length === 0) {
+      this.message = 'No covers found';
+    } else {
+      this.message = `Covers found: ${this.results.length}`;
+    }
   }
 
   chooseCover(result) {

@@ -40,12 +40,11 @@
       <button class="btn btn-ok" (click)="save()">Save Changes</button>
       <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
     </form>
-    <p *ngIf="!results">No cover found!</p>
-    <p *ngIf="results">Covers found: {{results.length}}</p>
+    <p>{{message}}</p>
     <div class="row">
       <div [hidden]="!result.cover_i" class="col" *ngFor="let result of results">
         <img 
-          src="https://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="{{result.title}} cover image"
+          src="https://covers.openlibrary.org/b/id/{{result.cover_i}}-M.jpg" alt="{{result.title}} book cover"
           (click)="chooseCover(result)">
       </div>
     </div>

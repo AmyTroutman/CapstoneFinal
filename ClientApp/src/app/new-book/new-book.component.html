@@ -77,8 +77,8 @@
       <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
     </form>
 
-    <p *ngIf="!results">No cover found!</p>
-    <p *ngIf="results">Covers found: {{results.length}}</p>
+    <p>{{message}}</p>
+
     <div class="row">
       <div [hidden]="!result.cover_i" class="col" *ngFor="let result of results">
         <img 
