@@ -23,7 +23,6 @@
   </div>
 
   <div *ngIf="isAuthenticated | async" class="card-deck">
-    <h2 class="home">Ex Libris {{userName | async}}</h2>
 
     <div class="row">
       <div class="col-md-4">
@@ -44,7 +43,7 @@
             </div>
           </div>
         </div>
-        <div class="text-center" *ngIf="!reading">
+        <div class="text-center" *ngIf="reading.length===0">
           <h4>Not reading anything right now?</h4>
           <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
         </div>
