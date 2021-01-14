@@ -28,3 +28,11 @@ http://covers.openlibrary.org/b/id/10150945-L.jpg
 
 [OpenLibrary Search API](https://openlibrary.org/dev/docs/api/search)
 [OpenLibrary Books API](https://openlibrary.org/dev/docs/api/books)
+
+## Home Redo
+Since you have to create an account to use Bookalog, the home page should sell the user on signing up. This is first impression, window shopping. This is not the place for a changelog. 
+
+### Todo
+[ ] Create a changelog page with a link to it on the home page
+[ ] Get screenshots of the app in action
+[ ] Write a sales pitch
