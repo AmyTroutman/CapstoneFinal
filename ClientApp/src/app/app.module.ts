@@ -27,6 +27,7 @@ import { BookTableComponent } from './book-table/book-table.component';
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 import { SaveModalComponent } from './save-modal/save-modal.component';
+import { ChangelogComponent } from './changelog/changelog.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { SaveModalComponent } from './save-modal/save-modal.component';
     BookTableComponent,
     EditBookComponent,
     ConfirmModalComponent,
-    SaveModalComponent
+    SaveModalComponent,
+    ChangelogComponent
 
   ],
   imports: [
@@ -53,6 +55,7 @@ import { SaveModalComponent } from './save-modal/save-modal.component';
       { path: 'newbook', component: NewBookComponent, canActivate: [AuthorizeGuard] },
       { path: 'book/:id', component: BookViewComponent, canActivate: [AuthorizeGuard ]},
       { path: 'edit/:id', component: EditBookComponent, canActivate: [AuthorizeGuard ]},
+      { path: 'changelog', component: ChangelogComponent }
 
     ]),
     BrowserAnimationsModule,

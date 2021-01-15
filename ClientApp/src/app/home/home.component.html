@@ -1,25 +1,8 @@
 <div class="card-deck">
   <div *ngIf="!(isAuthenticated | async)" class="card text-center">
-    <h2 class="home">Welcome to Your Personal Catalobrary!</h2>
-    <br>
-    <h4>Current Features:</h4>
-    <ul>
-      <li>Can add, update, and delete books!</li>
-      <li>Can view books on a table, with sorting and pagination!</li>
-      <li>Can view books as cards!</li>
-      <li>Can add books to lists!! Like "To Read" and "Have Read" and "Want to buy!"</li>
-      <li>Can view those lists on the home page!</li>
-      <li>Now warns before forever-deleting a book!</li>
-      <li>Acknowledges when a new book is added!</li>
-      <li>No longer insists on more books being added!</li>
-    </ul>
-
-    <h4>Far Future Features!</h4>
-    <ul>
-      <li>Enter the ISBN to add a book!</li>
-      <li>Book covers, perhaps?!</li>
-      <li>Book suggestions when you run out of books?!?</li>
-    </ul>
+    <h1><i>Bookalog</i></h1>
+    <p>Hello</p>
+    <a [routerLink]="['/changelog']">Changelog</a>
   </div>
 
   <div *ngIf="isAuthenticated | async" class="card-deck">
@@ -97,4 +80,7 @@
         </div>
       </div>
     </div>
+  <a [routerLink]="['/changelog']">Changelog</a>
+
   </div>
+</div> 
