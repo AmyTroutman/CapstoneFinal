@@ -53,6 +53,8 @@ footer {
 
 .card {
   background-color: #05325cce;
+  background-image: url("../src/assets/bookEndsheet.jpg");
+  background-size: cover;
   border: 2px solid #c56558;
   width: 100%;
   color: #ffdbcd;
@@ -65,11 +67,11 @@ footer {
 
 .card-title{
   text-decoration: underline;
-  color: #001036;
+  color: #f08080;
 }
 
 .card-subtitle {
-  color: #001036;
+  color:#ffdbcd;
   font-size: 1em;
 }
 

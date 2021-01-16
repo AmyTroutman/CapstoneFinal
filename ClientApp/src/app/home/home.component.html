@@ -17,10 +17,8 @@
                 <div class="card-body">
                   <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
                     alt="{{book.title}} cover image" style="width: 5rem;">
-                  <h5 class="card-title">{{book.title}}</h5>
-                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                  <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
-                  <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                  <h5 *ngIf="!book.cover" class="card-title">{{book.title}}</h5>
+                  <h6 *ngIf="!book.cover" class="card-subtitle mb-2 ">{{book.author}}</h6>
                 </div>
               </a>
             </div>
@@ -41,10 +39,8 @@
                 <div class="card-body">
                   <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
                     alt="{{book.title}} cover image" style="width: 5rem;">
-                  <h5 class="card-title">{{book.title}}</h5>
-                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                  <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
-                  <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                  <h5 *ngIf="!book.cover" class="card-title">{{book.title}}</h5>
+                  <h6 *ngIf="!book.cover" class="card-subtitle mb-2 ">{{book.author}}</h6>
                 </div>
               </a>
             </div>
@@ -65,10 +61,8 @@
                 <div class="card-body">
                   <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
                     alt="{{book.title}} cover image" style="width: 5rem;">
-                  <h5 class="card-title">{{book.title}}</h5>
-                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                  <h6 class="card-subtitle mb-2 " *ngIf="book.series!='n/a'">Series: {{book.series}}</h6>
-                  <h6 class="card-subtitle mb-2 ">Status: {{book.status}}</h6>
+                  <h5 *ngIf="!book.cover" class="card-title">{{book.title}}</h5>
+                  <h6 *ngIf="!book.cover" class="card-subtitle mb-2 ">{{book.author}}</h6>
                 </div>
               </a>
             </div>
