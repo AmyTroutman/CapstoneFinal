@@ -2,7 +2,7 @@
   <div *ngIf="!(isAuthenticated | async)" class="card text-center">
     <h1><i>Bookalog</i></h1>
     <p>Hello</p>
-    <a [routerLink]="['/changelog']">Changelog</a>
+
   </div>
 
   <div *ngIf="isAuthenticated | async" class="card-deck">
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-  <a [routerLink]="['/changelog']">Changelog</a>
+ 
 
   </div>
 </div> 
