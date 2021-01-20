@@ -53,7 +53,7 @@ footer {
 
 .card {
   background-color: #05325cce;
-  background-image: url("../src/assets/bookEndsheet.jpg");
+  /* background-image: url("../src/assets/bookEndsheet.jpg"); */
   background-size: cover;
   border: 2px solid #c56558;
   width: 100%;
@@ -76,3 +76,11 @@ footer {
   font-size: 1em;
 }
 
+.defaultCover {
+  border: #e72c0a 2px solid;
+  background-color: #021b33;
+  margin: auto;
+  padding: 20% 2%;
+  height: 270px;
+  width: 180px;
+}

@@ -59,10 +59,12 @@
             <div class="card text-center" style="width: 18rem;">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
-                  <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
+                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
                     alt="{{book.title}} cover image" style="width: 5rem;">
-                  <h5 *ngIf="!book.cover" class="card-title">{{book.title}}</h5>
-                  <h6 *ngIf="!book.cover" class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  <div *ngIf="!book.cover" class="defaultCover">
+                    <h4 class="card-title">{{book.title}}</h4>
+                    <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  </div>
                 </div>
               </a>
             </div>
@@ -74,7 +76,7 @@
         </div>
       </div>
     </div>
- 
+
 
   </div>
-</div> 
+</div>
