@@ -40,9 +40,9 @@
           <textarea class="form-control" [(ngModel)]="book.notes" name="notes" id="notes" rows="3"></textarea>
         </div>
       </div>
-      <button class="btn btn-ok" (click)="getCover(book.title)">Choose Book Cover</button>
+      <button class="btn btn-meh" (click)="getCover(book.title)">Choose Book Cover</button>
       <button class="btn btn-ok" (click)="save()">Save Changes</button>
-      <button class="btn btn-meh" routerLink="/catalog">Nevermind!</button>
+      <button class="btn btn-bye" routerLink="/catalog">Nevermind!</button>
     </form>
     <p>{{message}}</p>
     <div class="row">
