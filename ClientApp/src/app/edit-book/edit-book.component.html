@@ -3,8 +3,12 @@
   <div class="align-items-center">
     <form>
       <div class="row align-items-center">
-        <div class="col">
+        <div *ngIf="book.cover" class="col">
           <img src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg" alt="{{book.title}} cover image">
+        </div>
+        <div *ngIf="!book.cover" class="col defaultCover">
+          <h4 class="card-title">{{book.title}}</h4>
+          <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
         </div>
         <div class="col">
           <label for="title">Title</label>
@@ -38,7 +42,7 @@
       </div>
       <button class="btn btn-ok" (click)="getCover(book.title)">Choose Book Cover</button>
       <button class="btn btn-ok" (click)="save()">Save Changes</button>
-      <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
+      <button class="btn btn-meh" routerLink="/catalog">Nevermind!</button>
     </form>
     <p>{{message}}</p>
     <div class="row">

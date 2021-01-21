@@ -12,13 +12,15 @@
         <h3 class="text-center">Reading Now</h3>
         <div *ngIf="reading.length!=0">
           <div *ngFor="let book of reading">
-            <div class="card text-center" style="width: 18rem;">
+            <div class="card text-center">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
-                  <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
-                    alt="{{book.title}} cover image" style="width: 5rem;">
-                  <h5 *ngIf="!book.cover" class="card-title">{{book.title}}</h5>
-                  <h6 *ngIf="!book.cover" class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg"
+                  alt="{{book.title}} cover image">
+                <div *ngIf="!book.cover" class="defaultCover">
+                  <h4 class="card-title">{{book.title}}</h4>
+                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                </div>
                 </div>
               </a>
             </div>
@@ -34,13 +36,15 @@
         <h3 class="text-center">Reading Next</h3>
         <div *ngIf="read.length!=0">
           <div *ngFor="let book of read">
-            <div class="card text-center" style="width: 18rem;">
+            <div class="card text-center">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
-                  <img class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
-                    alt="{{book.title}} cover image" style="width: 5rem;">
-                  <h5 *ngIf="!book.cover" class="card-title">{{book.title}}</h5>
-                  <h6 *ngIf="!book.cover" class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg"
+                    alt="{{book.title}} cover image">
+                  <div *ngIf="!book.cover" class="defaultCover">
+                    <h4 class="card-title">{{book.title}}</h4>
+                    <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  </div>
                 </div>
               </a>
             </div>
@@ -56,11 +60,11 @@
         <h3 class="text-center">Wanna Buy!</h3>
         <div *ngIf="buy.length!=0">
           <div *ngFor="let book of buy">
-            <div class="card text-center" style="width: 18rem;">
+            <div class="card text-center">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
-                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-L.jpg"
-                    alt="{{book.title}} cover image" style="width: 5rem;">
+                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg"
+                    alt="{{book.title}} cover image">
                   <div *ngIf="!book.cover" class="defaultCover">
                     <h4 class="card-title">{{book.title}}</h4>
                     <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
@@ -72,7 +76,7 @@
         </div>
         <div class="text-center" *ngIf="buy.length===0">
           <h4>How is this list empty??</h4>
-          <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+          <a class="btn btn-ok" [href]="'https://recommendmeabook.com/'" target="_blank">Find a book!</a>
         </div>
       </div>
     </div>
