@@ -52,13 +52,16 @@ body {
    color: #ffdbcd;
   }
 
-h1,h2,h3,h4,h5,h6 {
+h1,h2,h4,h5,h6 {
   color: #f08080;
   font-family: 'Alice', serif;
 }
 
 h1 {
   text-decoration: underline;
+}
+h3 {
+  color: #b7d9f8;
 }
 
 .home {
@@ -93,7 +96,7 @@ footer {
 }
 
 .card-subtitle {
-  color:#ffdbcd;
+  color: #b7d9f8;
   font-size: 1em;
 }
 
