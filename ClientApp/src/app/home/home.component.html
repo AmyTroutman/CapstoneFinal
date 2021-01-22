@@ -1,8 +1,14 @@
 <div class="card-deck">
   <div *ngIf="!(isAuthenticated | async)" class="card text-center">
     <h1><i>Bookalog</i></h1>
-    <p>Hello</p>
-
+    <p>Catalog your books</p>
+    <p>View your books as a collection...</p>
+    <p>or on a searchable table</p>
+    <p>Keep notes on each book</p>
+    <div class="bug">
+      <p>Find a bug? Have a feature suggestion? <a [href]="'https://github.com/AmyTroutman/CapstoneFinal/issues/new'"
+          target="_blank">Let me know!</a></p>
+    </div>
   </div>
 
   <div *ngIf="isAuthenticated | async" class="card-deck">
@@ -15,12 +21,12 @@
             <div class="card text-center">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
-                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg"
-                  alt="{{book.title}} cover image">
-                <div *ngIf="!book.cover" class="defaultCover">
-                  <h4 class="card-title">{{book.title}}</h4>
-                  <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
-                </div>
+                  <img *ngIf="book.cover" class="card-img-top"
+                    src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg" alt="{{book.title}} cover image">
+                  <div *ngIf="!book.cover" class="defaultCover">
+                    <h4 class="card-title">{{book.title}}</h4>
+                    <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
+                  </div>
                 </div>
               </a>
             </div>
@@ -39,8 +45,8 @@
             <div class="card text-center">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
-                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg"
-                    alt="{{book.title}} cover image">
+                  <img *ngIf="book.cover" class="card-img-top"
+                    src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg" alt="{{book.title}} cover image">
                   <div *ngIf="!book.cover" class="defaultCover">
                     <h4 class="card-title">{{book.title}}</h4>
                     <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
@@ -63,8 +69,8 @@
             <div class="card text-center">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
-                  <img *ngIf="book.cover" class="card-img-top" src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg"
-                    alt="{{book.title}} cover image">
+                  <img *ngIf="book.cover" class="card-img-top"
+                    src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg" alt="{{book.title}} cover image">
                   <div *ngIf="!book.cover" class="defaultCover">
                     <h4 class="card-title">{{book.title}}</h4>
                     <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
