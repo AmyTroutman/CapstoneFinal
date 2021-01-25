@@ -63,9 +63,9 @@
       </div>
 
       <div class="col-md-4">
-        <h3 class="text-center">Wanna Buy!</h3>
-        <div *ngIf="buy.length!=0">
-          <div *ngFor="let book of buy">
+        <h3 class="text-center">Need to Get!</h3>
+        <div *ngIf="get.length!=0">
+          <div *ngFor="let book of get">
             <div class="card text-center">
               <a [routerLink]="['/book', book.id]">
                 <div class="card-body">
@@ -80,7 +80,7 @@
             </div>
           </div>
         </div>
-        <div class="text-center" *ngIf="buy.length===0">
+        <div class="text-center" *ngIf="get.length===0">
           <h4>How is this list empty??</h4>
           <a class="btn btn-ok" [href]="'https://recommendmeabook.com/'" target="_blank">Find a book!</a>
         </div>

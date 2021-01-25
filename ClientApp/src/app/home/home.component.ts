@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   books: IBook[];
   read: IBook[] = [];
   reading: IBook[] = [];
-  buy: IBook[] = [];
+  get: IBook[] = [];
 
 
   constructor(private authorizeService: AuthorizeService, private bookService: BookService) {   }
@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
     this.books = await this.bookService.GetBooks();
     this.read = this.books.filter(b => b.status === 'Wanna Read');
     this.reading = this.books.filter(b => b.status === 'Am Reading');
-    this.buy = this.books.filter(b => b.status === 'Need to Buy');
+    this.get = this.books.filter(b => b.status === 'Need to Get');
   }
 
 }
