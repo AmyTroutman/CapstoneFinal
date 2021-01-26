@@ -9,8 +9,6 @@ When you edit a book, you'll have the option to loan a book out and the same inf
 When editing, if a book is already marked as borrowed or loaned, you can return it. 
 Borrowed and loaned run off the same table.
 
-Set an if statement in the add function for newBook: if loaned is true, call the loanController and pass the data.
-
 ### Book Cover
 If I have the ISBN, I can get the correct book cover easy. But rather than put it on the user to get the ISBN, maybe I just have a "Select book cover" modal that shows all the results based on the title the user gives. 
 Check OpenLibrary API for how book covers work (like moviedb?)
@@ -35,5 +33,4 @@ Since you have to create an account to use Bookalog, the home page should sell t
 ### Todo
 + [x] Create a changelog page with a link to it on the home page
 + [ ] Get screenshots of the app in action
-+ [ ] Write a sales pitch
 + [x] Fix changelog link (add to footer?)
