@@ -1,44 +1,55 @@
 <div class="container card text-center">
-  <h3>Edit {{book.title}}</h3>
+  <h3>Editing: <span>{{book.title}}</span></h3>
   <div class="align-items-center">
     <form>
       <div class="row align-items-center">
-        <div class="col">
+        <div *ngIf="book.cover" class="col">
           <img src="http://covers.openlibrary.org/b/id/{{book.cover}}-M.jpg" alt="{{book.title}} cover image">
         </div>
-        <div class="col">
-          <label for="title">Title</label>
-          <input class="form-control" type="text" [(ngModel)]="book.title" name="title" id="title" />
-          <label for="genre">Genre</label>
-          <input class="form-control" type="text" [(ngModel)]="book.genre" name="genre" id="genre" />
-        </div>
-        <div class="col">
-          <label for="author">Author</label>
-          <input class="form-control" type="text" [(ngModel)]="book.author" name="author" id="author" />
-          <label for="series">Series</label>
-          <input class="form-control" type="text" [(ngModel)]="book.series" name="series" id="series" />
+        <div *ngIf="!book.cover" class="col defaultCover">
+          <h4 class="card-title">{{book.title}}</h4>
+          <h6 class="card-subtitle mb-2 ">{{book.author}}</h6>
         </div>
 
         <div class="col">
-          <label for="status">Status</label>
-          <select class="form-control" [(ngModel)]="book.status" name="status" id="status">
-            <option *ngFor="let stat of options" [value]="stat">{{stat}}</option>
-          </select>
-          <label for="type">Type</label>
+          <label class="card-text" for="title">Title</label>
+          <input class="form-control" type="text" [(ngModel)]="book.title" name="title" id="title" />
+          <label class="card-text" for="series">Series</label>
+          <input class="form-control" type="text" [(ngModel)]="book.series" name="series" id="series" />
+          <label class="card-text" for="type">Format</label>
           <select class="form-control" [(ngModel)]="book.type" name="type" id="type">
             <option *ngFor="let type of types" [value]="type">{{type}}</option>
           </select>
         </div>
+
+        <div class="col">
+          <label class="card-text" for="author">Author</label>
+          <input class="form-control" type="text" [(ngModel)]="book.author" name="author" id="author" />
+          <label class="card-text" for="genre">Genre</label>
+          <input class="form-control" type="text" [(ngModel)]="book.genre" name="genre" id="genre" />
+          <label class="card-text" for="status">Status</label>
+          <select class="form-control" [(ngModel)]="book.status" name="status" id="status">
+            <option *ngFor="let stat of options" [value]="stat">{{stat}}</option>
+          </select>
+        </div>
       </div>
+
+      <!-- not quite ready for this
+      <div *ngIf="book.status == 'Borrowed'" class="row">
+        <div class="col">
+          <p>hey</p>
+        </div>
+      </div> -->
+      
       <div class="row">
         <div class="col">
-          <label for="notes">Notes</label>
+          <label class="card-text" for="notes">Notes</label>
           <textarea class="form-control" [(ngModel)]="book.notes" name="notes" id="notes" rows="3"></textarea>
         </div>
       </div>
-      <button class="btn btn-ok" (click)="getCover(book.title)">Choose Book Cover</button>
+      <button class="btn btn-meh" (click)="getCover(book.title)">Choose Book Cover</button>
       <button class="btn btn-ok" (click)="save()">Save Changes</button>
-      <button class="btn btn-info" routerLink="/catalog">Nevermind!</button>
+      <button class="btn btn-bye" routerLink="/catalog">Nevermind!</button>
     </form>
     <p>{{message}}</p>
     <div class="row">

@@ -10,7 +10,7 @@ export class BookService {
 
   books: IBook[];
   bookId: number;
-  statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Buy', 'Didn\'t Finish'];
+  statuses = ['Wanna Read', 'Am Reading', 'Have Read', 'Need to Get', 'Didn\'t Finish', 'Borrowed'];
   types = ['Paperback', 'Hardback', 'eBook', 'Audiobook', 'Other'];
   searchResults: any[] = [];
 

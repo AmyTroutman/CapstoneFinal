@@ -14,6 +14,6 @@ export class BookComponent implements OnInit {
   constructor(private bookService: BookService) { }
 
   async ngOnInit() {
-    this.books = await this.bookService.GetBooks();
+    this.books = await (await this.bookService.GetBooks()).sort((obj1, obj2) => obj1.title.localeCompare(obj2.title));
   }
 }

@@ -45,6 +45,9 @@ export class NewBookComponent implements OnInit {
     if (this.newBook.series === '') {
       this.newBook.series = 'n/a';
     }
+    if (this.newBook.status === 'Borrowed') {
+      this.newBook.loaned = true;
+    }
     await this.bookService.AddBook(this.newBook);
     this.newBook = {title: '', author: '', notes: '', series: '', type: '', userId: '', genre: '', status: '', cover: '', loaned: false};
   }
@@ -59,9 +62,10 @@ export class NewBookComponent implements OnInit {
     this.results = this.bookService.searchResults[0].docs;
     if (this.results.length === 0) {
       this.message = 'No covers found';
-    } else {
-      this.message = `Covers found: ${this.results.length}`;
-    }
+    // commented out because it includes results that don't actually have a cover
+    // } else {
+    //   this.message = `Covers found: ${this.results.length}`;
+   }
   }
 
   chooseCover(result) {

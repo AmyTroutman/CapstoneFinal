@@ -46,6 +46,7 @@ namespace capstone
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+            //add services.AddScoped<IRepo, Repo/IService, Service>() here
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

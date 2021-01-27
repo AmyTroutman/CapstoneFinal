@@ -33,6 +33,9 @@ export class EditBookComponent implements OnInit {
     if (this.book.series === '') {
       this.book.series = 'n/a';
     }
+    if (this.book.status === 'Borrowed') {
+      this.book.loaned = true;
+    }
     await this.bookService.UpdateBook(this.bookId, this.book);
     this.book = {
       id: this.bookId,
@@ -45,7 +48,8 @@ export class EditBookComponent implements OnInit {
       genre: '',
       status: '',
       cover: '',
-      loaned: false};
+      loaned: false
+    };
     this.books = await this.bookService.GetBooks();
     this.router.navigate(['/catalog']);
   }
@@ -55,8 +59,6 @@ export class EditBookComponent implements OnInit {
     this.results = this.bookService.searchResults[0].docs;
     if (this.results.length === 0) {
       this.message = 'No covers found';
-    } else {
-      this.message = `Covers found: ${this.results.length}`;
     }
   }
 
