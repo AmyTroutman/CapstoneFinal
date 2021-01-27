@@ -12,10 +12,8 @@
         </div>
 
         <div class="col" [ngClass]="{
-          'has-danger': title.invalid && (title.dirty || title.touched),
-          'has-success': title.valid && (title.dirty || title.touched), 'has-danger': type.invalid && (type.dirty || type.touched),
-          'has-success': type.valid && (type.dirty || type.touched)
-     }">
+          'has-danger': title.invalid && (title.dirty || title.touched) || type.invalid && (type.dirty || type.touched),
+          'has-success': title.valid && (title.dirty || title.touched) || type.valid && (type.dirty || type.touched)}">
           <label class="card-text" for="title">Title</label>
           <input class="form-control" required type="text" [(ngModel)]="newBook.title" name="title" id="title"
             #title="ngModel" />
@@ -36,11 +34,10 @@
           </div>
         </div>
 
-        <div class="col" [ngClass]="{
-          'has-danger': author.invalid && (title.dirty || title.touched),
-          'has-success': author.valid && (title.dirty || title.touched), 'has-danger': status.invalid && (status.dirty || status.touched),
-          'has-success': status.valid && (status.dirty || status.touched)
-     }">
+        <div class="col"
+          [ngClass]="{
+          'has-danger': author.invalid && (title.dirty || title.touched) || status.invalid && (status.dirty || status.touched),
+          'has-success': author.valid && (title.dirty || title.touched) || status.valid && (status.dirty || status.touched)}">
           <label class="card-text" for="author">Author</label>
           <input class="form-control" required type="text" [(ngModel)]="newBook.author" name="author" id="author"
             #author="ngModel" />
@@ -68,7 +65,7 @@
           <p>hey</p>
         </div>
       </div> -->
-      
+
       <div class="row">
         <div class="col">
           <label class="card-text" for="notes">Notes</label>
