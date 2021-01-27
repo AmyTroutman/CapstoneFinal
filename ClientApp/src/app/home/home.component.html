@@ -1,10 +1,27 @@
 <div class="card-deck">
-  <div *ngIf="!(isAuthenticated | async)" class="card text-center">
+  <div *ngIf="!(isAuthenticated | async)" class="container card text-center">
     <h1><i>Bookalog</i></h1>
-    <h3>Catalog your books</h3>
-    <p>View your books as a collection...</p>
-    <p>or on a searchable table</p>
-    <p>Keep notes on each book</p>
+    <h3>The book service for the forgetful reader</h3>
+    <p>Have you ever found a new book to read, only to get a few chapters in and realize you've read it before? And not only have you read it before, but you already own it?</p>
+    <p>Or the third book in that series you really like just came out, but as you start reading you wonder if you actually read the previous book because who the heck are these people??</p>
+    <div class="row align-items-center">
+      <h3 class="col">Catalog your books</h3>
+      <img src="\assets\BookScreenshot.PNG" alt="screenshot of book view" class="col screenshot">
+    </div>
+    <div class="row align-items-center">
+      <img src="\assets\CatalogScreenshot.PNG" alt="screenshot of catalog view" class="col screenshot">
+      <h3 class="col">View your books as a collection...</h3>
+    </div>
+    <div class="row align-items-center">
+      <h3 class="col">Or on a searchable table</h3>
+      <img src="\assets\TableScreenshot.PNG" alt="screenshot of table view" class="col screenshot">
+    </div>
+    <div class="row align-items-center">
+      <img src="\assets\EditScreenshot.PNG" alt="screenshot of edit view" class="col screenshot">
+      <h3 class="col">Keep notes on each book</h3>
+    </div>
+    <h3>Give it a go! <a [routerLink]='["/authentication/register"]'>Create an account!</a></h3>
+    <hr>
     <div class="bug">
       <p>Find a bug? Have a feature suggestion? <a [href]="'https://github.com/AmyTroutman/CapstoneFinal/issues/new'"
           target="_blank">Let me know!</a></p>
@@ -12,7 +29,6 @@
   </div>
 
   <div *ngIf="isAuthenticated | async" class="card-deck">
-
     <div class="row">
       <div class="col-md-4">
         <h3 class="text-center">Reading Now</h3>
@@ -86,7 +102,5 @@
         </div>
       </div>
     </div>
-
-
   </div>
 </div>
