@@ -14,7 +14,7 @@
       <img src="\assets\EditScreenshotCrop.png" alt="screenshot of edit view" class="col screenshot">
     </div>
     <div class="row align-items-center">
-      <img src="\assets\CatalogScreenshotCrop.png" alt="screenshot of catalog view" class="col screenshot">
+      <img src="\assets\CatalogScreenshot.png" alt="screenshot of catalog view" class="col screenshot">
       <div class="col">
         <h3>View your books as a collection...</h3>
         <p>If you need an image to refresh your memory, or you just like looking at your books :)</p>
@@ -62,9 +62,9 @@
             </div>
           </div>
         </div>
-        <div class="text-center" *ngIf="reading.length===0">
+        <div class="card text-center" *ngIf="reading.length===0">
           <h4>Not reading anything right now?</h4>
-          <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+          <button class="btn-faux btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
         </div>
       </div>
 
@@ -86,9 +86,9 @@
             </div>
           </div>
         </div>
-        <div class="text-center" *ngIf="read.length===0">
+        <div class="card text-center" *ngIf="read.length===0">
           <h4>Need something to read next?</h4>
-          <button class="btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
+          <button class="btn-faux btn btn-ok" [routerLink]="['/newbook']">Add a book!</button>
         </div>
       </div>
 
@@ -110,9 +110,9 @@
             </div>
           </div>
         </div>
-        <div class="text-center" *ngIf="get.length===0">
+        <div class="card text-center" *ngIf="get.length===0">
           <h4>How is this list empty??</h4>
-          <a class="btn btn-ok" [href]="'https://recommendmeabook.com/'" target="_blank">Find a book!</a>
+          <a class="btn-faux btn btn-ok" [href]="'https://recommendmeabook.com/'" target="_blank">Find a book!</a>
         </div>
       </div>
     </div>

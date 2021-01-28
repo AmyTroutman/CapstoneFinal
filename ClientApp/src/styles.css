@@ -40,6 +40,11 @@ a:hover{
   border: #ffdbcd solid 1px;
 }
 
+.btn-faux {
+  width: 40%;
+  margin-left: 31%;
+}
+
 html, body { height: 100%; }
 
 body {
@@ -77,11 +82,10 @@ footer {
 
 .card {
   background-color: #26282b;
-  /* background-image: url("../src/assets/bookEndsheet.jpg"); */
   background-size: cover;
   border: 2px solid #f08080;
   width: 100%;
-  height: 97%;
+  height: 5.5%;
   color: #ffdbcd;
   font-family: 'Alice', serif;
 }
