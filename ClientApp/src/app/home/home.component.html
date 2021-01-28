@@ -2,23 +2,30 @@
   <div *ngIf="!(isAuthenticated | async)" class="container card text-center">
     <h1><i>Bookalog</i></h1>
     <h3>The book service for the forgetful reader</h3>
-    <p>Have you ever found a new book to read, only to get a few chapters in and realize you've read it before? And not only have you read it before, but you already own it?</p>
-    <p>Or the third book in that series you really like just came out, but as you start reading you wonder if you actually read the previous book because who the heck are these people??</p>
+    <p>Have you ever found a new book to read, only to get a few chapters in and realize you've read it before? And not
+      only have you read it before, but you already own it?</p>
+    <p>Or the third book in that series you really like just came out, but as you start reading you wonder if you
+      actually read the previous book because who the heck are these people??</p>
     <div class="row align-items-center">
-      <h3 class="col">Catalog your books</h3>
-      <img src="\assets\BookScreenshot.PNG" alt="screenshot of book view" class="col screenshot">
+      <div class="col">
+        <h3>Catalog your books</h3>
+        <p>All your typical catalog features, plus the option to keep notes and update the status of the book!</p>
+      </div>
+      <img src="\assets\EditScreenshotCrop.png" alt="screenshot of edit view" class="col screenshot">
     </div>
     <div class="row align-items-center">
-      <img src="\assets\CatalogScreenshot.PNG" alt="screenshot of catalog view" class="col screenshot">
-      <h3 class="col">View your books as a collection...</h3>
+      <img src="\assets\CatalogScreenshotCrop.png" alt="screenshot of catalog view" class="col screenshot">
+      <div class="col">
+        <h3>View your books as a collection...</h3>
+        <p>If you need an image to refresh your memory, or you just like looking at your books :)</p>
+      </div>
     </div>
     <div class="row align-items-center">
-      <h3 class="col">Or on a searchable table</h3>
-      <img src="\assets\TableScreenshot.PNG" alt="screenshot of table view" class="col screenshot">
-    </div>
-    <div class="row align-items-center">
-      <img src="\assets\EditScreenshot.PNG" alt="screenshot of edit view" class="col screenshot">
-      <h3 class="col">Keep notes on each book</h3>
+      <div class="col">
+        <h3>Or on a searchable table</h3>
+        <p>For quickly finding out if you already read or own a book!</p>
+      </div>
+      <img src="\assets\TableScreenshotCrop.png" alt="screenshot of table view" class="col screenshot">
     </div>
     <h3>Give it a go! <a [routerLink]='["/authentication/register"]'>Create an account!</a></h3>
     <hr>
